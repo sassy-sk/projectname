@@ -56,6 +56,12 @@ export default defineConfig({
         'parts/**/*.ejs',
         'sass/**/*.scss'
       ]
-    )
+    ),
+    VitePluginWebpAndPath({
+      targetDir: '../',
+      imgExtensions: 'jpg,png',
+      textExtensions: 'html,css,ejs,js',
+      quality: 80,
+    })
   ]
 });

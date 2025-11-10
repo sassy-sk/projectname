@@ -17,6 +17,7 @@
     "sass": "^1.93.3",
     "vite": "^7.1.7",
     "vite-plugin-ejs": "^1.7.0",
-    "vite-plugin-live-reload": "^3.0.5"
+    "vite-plugin-live-reload": "^3.0.5",
+    "vite-plugin-webp-and-path": "^0.1.4"
   }
 }
