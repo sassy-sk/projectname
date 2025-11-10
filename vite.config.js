@@ -3,6 +3,7 @@ import { resolve } from 'path';
 import { globSync } from 'glob';
 import { ViteEjsPlugin } from 'vite-plugin-ejs';
 import liveReload from 'vite-plugin-live-reload';
+import VitePluginWebpAndPath from 'vite-plugin-webp-and-path';
 
 export default defineConfig({
   root: './src',
@@ -58,10 +59,11 @@ export default defineConfig({
       ]
     ),
     VitePluginWebpAndPath({
-      targetDir: '../',
+      targetDir: './*.html, ./assets/',
       imgExtensions: 'jpg,png',
-      textExtensions: 'html,css,ejs,js',
+      textExtensions: 'html,css,js',
       quality: 80,
+      preserveOriginal: true // 元の画像を残す
     })
   ]
 });
