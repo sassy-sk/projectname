@@ -1,6 +1,8 @@
 import fs from 'fs';
 import { globSync } from 'glob';
 
+//build時にHTMLファイルの画像パスを.webpに書き換え
+
 // ルート直下のHTMLファイルのみ対象（srcフォルダを除外）
 const htmlFiles = globSync('*.html', {
   ignore: ['src/**', 'node_modules/**']
