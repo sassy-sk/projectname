@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import { globSync } from 'glob';
+import { ViteEjsPlugin } from 'vite-plugin-ejs';
+import liveReload from 'vite-plugin-live-reload';
 
 export default defineConfig({
   root: './src',
@@ -46,5 +48,8 @@ export default defineConfig({
     host: true,
     open: '/'
   },
-  plugins: []
+  plugins: [
+    ViteEjsPlugin(),
+    liveReload(['src/**/*.html', 'src/**/*.ejs']),
+  ]
 });
