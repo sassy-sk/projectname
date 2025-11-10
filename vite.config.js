@@ -1,20 +1,50 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
+import { globSync } from 'glob';
 
 export default defineConfig({
-  root: './src', //出力元のパス指定
-  base: './', //相対パスを基準に設定
-  publicDir: "../public", //publicディレクトリのパス指定
-  build: { 
-    outDir: '../dist', //出力先の指定
-    emptyOutDir: true, //書き出すときにディレクトリを一旦削除
-    sourcemap: false, //jsのソースマップの設定
-    minify: false, //圧縮を無効化
+  root: './src',
+  base: './',
+  publicDir: '../public',
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true,
+    sourcemap: false,
+    minify: false,
+    rollupOptions: {
+      input: {
+        // HTMLファイルを自動検出
+        ...Object.fromEntries(
+          globSync('src/**/*.html').map(file => [
+            file.slice('src/'.length, -5).replace(/\//g, '_'),
+            resolve(__dirname, file)
+          ])
+        ),
+        // SCSSファイルを自動検出してエントリーポイント化
+        ...Object.fromEntries(
+          globSync('src/sass/**/*.scss').map(file => [
+            file.slice('src/sass/'.length, -5).replace(/\//g, '_'),
+            resolve(__dirname, file)
+          ])
+        )
+      },
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'assets/css/[name].css';
+          }
+          return 'assets/[name][extname]';
+        },
+        entryFileNames: (chunkInfo) => {
+          return 'assets/js/[name].js';
+        }
+      }
+    }
   },
   server: {
-    port: 3700, //指定のポート番号で開く
-    host: true, //IPアドレスを有効化
-    open: '/', //起動時に自動でブラウザで開くページを指定
+    port: 3700,
+    host: true,
+    open: '/'
   },
-  plugins: [
-  ],
+  plugins: []
 });
