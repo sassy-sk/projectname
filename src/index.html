@@ -1,32 +1,37 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>projectname</title>
-    <link rel="stylesheet" href="./sass/style.scss">
-    <link rel="stylesheet" href="./sass/common.scss">
-    <script defer src="./assets/js/main.js"></script>
-    <script defer src="./assets/js/counter.js"></script>
-  </head>
-  <body>
-    <div>
-      <a href="https://vite.dev" target="_blank">
-        <img src="./assets/images/vite.svg" class="logo" alt="Vite logo" />
-      </a>
-      <img src="./assets/images/image1.jpg" class="logo" alt="Vite logo" />
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-        <img src="./assets/images/javascript.svg" class="logo vanilla" alt="JavaScript logo" />
-      </a>
-      <h1>Hello Vite!</h1>
-      <div class="card">
-        <button id="counter" type="button"></button>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite logo to learn moreああああfffff
-      </p>
-      <%- include('./parts/_button', { page: 'index' }) %>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>projectname</title>
+  <link rel="stylesheet" href="./sass/style.scss">
+  <link rel="stylesheet" href="./sass/common.scss">
+  <script defer src="./assets/js/main.js"></script>
+  <script defer src="./assets/js/counter.js"></script>
+</head>
+
+<body>
+  <div>
+    <a href="https://vite.dev" target="_blank">
+      <img src="./assets/images/vite.svg" class="logo" alt="Vite logo" />
+    </a>
+    <!-- prettier-ignore -->
+    <!-- メモ -->
+    <img src="./assets/images/image1.jpg" class="logo" alt="Vite logo" />
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+      <img src="./assets/images/javascript.svg" class="logo vanilla" alt="JavaScript logo" />
+    </a>
+    <h1>Hello Vite!</h1>
+    <div class="card">
+      <button id="counter" type="button"></button>
     </div>
-  </body>
+    <p class="read-the-docs">
+      Click on the Vite logo to learn moreああああfffff
+    </p>
+    <%- include('./parts/_button', { page: 'index' }) %>
+  </div>
+</body>
+
 </html>

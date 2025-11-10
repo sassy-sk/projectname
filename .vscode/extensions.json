@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    "j69.ejs-beautify", // ejsBeautify
+    "esbenp.prettier-vscode" // prettier
+  ]
+}

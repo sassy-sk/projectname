@@ -1,0 +1,35 @@
+{
+    // ファイル保存時に自動整形する
+    "editor.formatOnSave": true,   // 保存時にフォーマット
+    "emmet.includeLanguages": {
+        "ejs": "html",
+    },
+    "[html]": {
+        "editor.defaultFormatter": "j69.ejs-beautify"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.printWidth": 9999,
+    "prettier.endOfLine": "lf",
+    "prettier.tabWidth": 2, //ここ以下は初期設定
+    "prettier.useTabs": false,
+    "prettier.semi": true,
+    "prettier.singleQuote": false,
+    "prettier.quoteProps": "as-needed",
+    "prettier.jsxSingleQuote": false,
+    "prettier.trailingComma": "none",
+    "prettier.bracketSpacing": true,
+    "prettier.bracketSameLine": false,
+    "prettier.arrowParens": "avoid",
+    "prettier.rangeStart": 0,
+    "prettier.rangeEnd": 99999999,
+    "prettier.parser": "none",
+    "prettier.filepath": "none",
+    "prettier.requirePragma": false,
+    "prettier.insertPragma": false,
+    "prettier.proseWrap": "preserve",
+    "prettier.htmlWhitespaceSensitivity": "css",
+    "prettier.vueIndentScriptAndStyle": false,
+    "files.insertFinalNewline": true,
+}
