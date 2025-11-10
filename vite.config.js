@@ -9,8 +9,8 @@ export default defineConfig({
   base: './',
   publicDir: '../public',
   build: {
-    outDir: '../dist',
-    emptyOutDir: true,
+    outDir: '../',
+    emptyOutDir: false,
     sourcemap: false,
     minify: false,
     rollupOptions: {
@@ -50,6 +50,12 @@ export default defineConfig({
   },
   plugins: [
     ViteEjsPlugin(),
-    liveReload(['src/**/*.html', 'src/**/*.ejs']),
+    liveReload(
+      [
+        '*.html',
+        'parts/**/*.ejs',
+        'sass/**/*.scss'
+      ]
+    )
   ]
 });
