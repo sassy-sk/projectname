@@ -59,7 +59,7 @@ export default defineConfig({
       ]
     ),
     VitePluginWebpAndPath({
-      targetDir: './assets/',
+      targetDir: './assets/images',
       imgExtensions: 'jpg,png',
       textExtensions: 'html,css,js',
       quality: 80,

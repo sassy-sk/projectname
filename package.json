@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node buildScript/convert-html-paths.js && npm run format",
+    "build": "vite build && node buildScript/convert-paths.js && npm run format",
     "format": "prettier --write '*.html' && find . -maxdepth 1 -type f -name '*.html' -exec sed -i '' '/^$/d' {} +",
     "preview": "vite preview"
   },
