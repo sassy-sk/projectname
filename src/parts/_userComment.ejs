@@ -1,0 +1,50 @@
+<%#
+    質問コメント
+    include('parts/_userComment', {path: '', status: 'is_seller', userImg: 1, userStatus: 'panda', comment: '文章が入りま'})
+    入力項目：
+    status（投稿者ステータス） -> is_seller：出品者、is_self:投稿者自身
+    userImg（ユーザーアイコン） -> 1:主婦ちゃん、2:リーマンくん、3:個人事業主くん
+    userStatus（会員ステータス） -> pengin:ペンギン、iruka:イルカ、panda:パンダ、tora:トラ
+    comment（コメント文） -> コメント本文
+%>
+
+<% switch (userImg) {
+  case 1:
+    userName = "主婦ちゃん";
+    break;
+    case 2:
+    userName = "リーマンくん";
+    break;
+    case 3:
+    userName = "個人事業主くん";
+    break;
+} %>
+
+<!-- 【sys】出品者の場合「is_seller」のclass付与で「出品者」ラベルと削除ボタンが表示されます -->
+<!-- 【sys】投稿者自身のコメントの場合「is_self」のclass付与で削除ボタンが表示されます -->
+<li class="<%= status %>">
+  <div class="user">
+    <a href="farmer-info.html"><img src="assets/images/sample_user<%= userImg %>.png" alt="{発言者名が入ります}"></a>
+    <!-- 【sys】会員区分アイコンを表示。会員区分に応じたclass「userstatus_〇〇」を追加してください。
+    トラ「userstatus_tora」
+    パンダ「userstatus_panda」
+    イルカ「userstatus_iruka」
+    ペンギン「userstatus_pengin」 -->
+    <span class="icon_status userstatus_<%= userStatus %>"></span>
+  </div>
+  <div class="comment_box">
+    <div class="commentInfo_box">
+      <p class="name"><a href="farmer_achievement.html"><%= userName %></a></p>
+      <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+      <p class="time">2022/10/3 23:00</p>
+    </div>
+    <!-- 【sys】.is_accordionがclassにつくと、吹き出しエリアが折りたたまれて、「続きを読む」が出るようになります。また、is_activeがclassにつくと、開いた状態になり「閉じる」に変わります -->
+    <div class="comment">
+      <p class="commentText"><%- comment %></p>
+      <!-- 【sys】自身が投稿者の時は削除ボタンを表示】-->
+      <div class="delete" data-bs-toggle="modal" data-bs-target="#modal_commentDelete" data-commentid="{111111}"><i class="fas fa-trash-alt" aria-hidden="true"></i></div>
+      <div class="more">続きを読む<i class="fas fa-chevron-down ms-1" aria-hidden="true"></i></div>
+      <div class="close">閉じる<i class="fas fa-chevron-up evasionBtn ms-1" aria-hidden="true"></i></div>
+    </div>
+  </div>
+</li>

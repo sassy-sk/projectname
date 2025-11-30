@@ -1,0 +1,171 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+ボタン
+============================*/
+.btn {
+  display: inline-block;
+  font-size: rem(16);
+  font-weight: bold;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 52px;
+  @include flexCenter(xy);
+  @include hover();
+
+  &:disabled,
+  &.is_disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+/* タブキーでの選択で枠線を表示 */
+button,
+.btn {
+  &:focus {
+    box-shadow: none;
+  }
+  &:focus-visible {
+    outline: none;
+    // bootstrapの:focus時のスタイルを適用
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+}
+
+.btn i,
+.btn svg {
+  margin: 0 4px 0 0;
+}
+
+// bootstrap上書きの為、.btnと繋げる
+.btn {
+  &.btn_gradient {
+    border: 1px solid var(--clGray_cc);
+    background: linear-gradient(180deg, #fcfcfc 0%, #e1e1e1 100%);
+
+    &:hover {
+      background: #fcfcfc;
+      opacity: 1 !important;
+    }
+    &:active {
+      background: #fcfcfc;
+      border-color: var(--clGray_cc);
+    }
+  }
+
+  &.btn_clMain01 {
+    color: #fff;
+    background-color: var(--clMain01);
+
+    &:hover {
+      color: #fff;
+    }
+    &:active {
+      color: #fff;
+      border-color: var(--clMain01);
+      background-color: var(--clMain01);
+    }
+  }
+
+  &.btn_clMain01_outline {
+    color: var(--clMain01);
+    background-color: #fff;
+    border: 1px solid var(--clMain01);
+
+    &:hover {
+      color: var(--clMain01);
+    }
+    &:active {
+      color: var(--clMain01);
+      background-color: #fff;
+      border-color: var(--clMain01);
+    }
+  }
+
+  &.btn_clMain02 {
+    color: #fff;
+    background-color: var(--clMain02);
+
+    &:hover {
+      color: #fff;
+    }
+    &:active {
+      color: #fff;
+      border-color: var(--clMain02);
+      background-color: var(--clMain02);
+    }
+  }
+
+  &.btn_clMain02_outline {
+    color: var(--clMain02);
+    background-color: #fff;
+    border: 1px solid var(--clMain02);
+
+    &:hover {
+      color: var(--clMain02);
+    }
+    &:active {
+      color: var(--clMain02);
+      background-color: #fff;
+      border-color: var(--clMain02);
+    }
+  }
+
+  &.btn_clAttention {
+    color: #fff;
+    background-color: var(--clAttention);
+
+    &:hover {
+      color: #fff;
+    }
+    &:active {
+      color: #fff;
+      border-color: var(--clAttention);
+      background-color: var(--clAttention);
+    }
+  }
+
+  &.btn_clAttention_outline {
+    color: var(--clAttention);
+    background-color: #fff;
+    border: 1px solid var(--clAttention);
+
+    &:hover {
+      color: var(--clAttention);
+    }
+    &:active {
+      color: var(--clAttention);
+      background-color: #fff;
+      border-color: var(--clAttention);
+    }
+  }
+
+  &.btn_clGray {
+    color: #fff;
+    background-color: var(--clGray_97);
+
+    &:hover {
+      color: #fff;
+    }
+    &:active {
+      color: #fff;
+      border-color: var(--clGray_97);
+      background-color: var(--clGray_97);
+    }
+  }
+
+  &.btn_clGray_outline {
+    color: var(--clGray_97);
+    background-color: #fff;
+    border: 1px solid var(--clGray_97);
+
+    &:hover {
+      color: var(--clGray_97);
+    }
+    &:active {
+      color: var(--clGray_97);
+      border-color: var(--clGray_97);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+お気に入りボタン
+============================*/
+
+.favBtn {
+  @include flexCenter(xy);
+  background-color: #fff;
+  padding: 5px 10px;
+  border: 1px solid var(--clGray_cc);
+  border-radius: 6px;
+  cursor: pointer;
+  i {
+    font-size: rem(14);
+    color: var(--clGray_97);
+  }
+  .count {
+    font-size: rem(12);
+  }
+  // アクティブ状態
+  &.is_active {
+    i {
+      color: var(--clAttention);
+      font-weight: bold;
+    }
+  }
+}

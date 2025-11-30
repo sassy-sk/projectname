@@ -1,0 +1,27 @@
+// このファイルはマイクロサービス毎の基本色やサイト幅などの設定です。
+// sassで変数を読み込めば、コンパイル時に変換されます。
+
+/*============================
+基本スタイル設定
+============================*/
+
+// 基本フォントサイズ
+$baseFontSize: 16;
+
+// 幅
+$pcWidth: 1200px;
+$mainWidth: 910px;
+$sideWidth: 260px;
+
+// ブレイクポイント
+$bp: 768px;
+$minPc: 769px;
+$spSm: 475px;
+$pcSm: calc($pcWidth + 32px);
+
+// ヘッダー用padding
+$scrollPaddingTopPc: 70px;
+$scrollPaddingTopSp: 60px;
+
+// Transition
+$transTime: 0.2s;

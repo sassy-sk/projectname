@@ -1,0 +1,85 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+フッター
+============================*/
+
+.footer {
+  width: 100%;
+  background-color: var(--clMain01_light);
+  .footer_container {
+    width: 100%;
+    max-width: $pcWidth;
+    margin: 0 auto;
+    @include flexCenter(y);
+    padding: 22px 0;
+    @include mq(769px, 1199px) {
+      width: 98%;
+    }
+    @include sp {
+      flex-direction: column;
+    }
+  }
+  .btn_group {
+    margin: 0 20px 0 0;
+    @include sp {
+      @include flexCenter(xy);
+      margin: 0 0 20px 0;
+    }
+
+    a {
+      padding: 10px;
+      font-size: rem(14);
+      font-weight: bold;
+      @include flexCenter(xy);
+      &:not(last-of-type) {
+        margin-right: 10px;
+      }
+      &.btn_guide {
+        display: none;
+        img {
+          filter: invert(26%) sepia(10%) saturate(13%) hue-rotate(332deg) brightness(98%) contrast(96%);
+        }
+        @include sp {
+          display: block;
+        }
+      }
+      img {
+        width: auto;
+        height: 20px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+/*============================
+フッター内ナビゲーション
+============================*/
+.footer_nav {
+  a {
+    color: var(--clText);
+    font-size: rem(12);
+    border-right: solid 1px var(--clText);
+    padding: 0 10px;
+    &:first-child {
+      padding: 0 10px 0 0;
+    }
+    &:last-child {
+      border-right: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/*============================
+コピーライト
+============================*/
+.copyright {
+  display: block;
+  background-color: #7fc893;
+  font-size: rem(10);
+  text-align: center;
+}

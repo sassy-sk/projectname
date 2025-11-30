@@ -1,0 +1,26 @@
+<%#
+  アラート用モーダル
+  include('parts/_modal_alert', {id:'alertModal_imageSize', title:'容量が大きすぎます', msg:'1枚の画像ファイルの上限は10MB/枚です。'})
+  入力項目：
+  id -> モーダルのID
+  title -> モーダルタイトル
+  msg -> モーダルテキスト
+%>
+
+
+<div class="modal fade" id="<%= id %>" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content modal_spFilter">
+      <div class="modal-header">
+        <h3 class="modal-title fw-bold" id="alertModalLabel"><%= title %></h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-start"><%- msg %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+      </div>
+    </div>
+  </div>
+</div>

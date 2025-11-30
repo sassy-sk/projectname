@@ -1,0 +1,37 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+ステータスメッセージ
+============================*/
+
+.statusMsg {
+  padding: 12px;
+  border-radius: 4px;
+  // OK
+  &.success {
+    background-color: var(--clMain01_light);
+  }
+  // エラー
+  &.error {
+    background-color: var(--clAttention);
+    color: #fff;
+  }
+  // 注意
+  &.attention {
+    background-color: var(--clAttention_light);
+  }
+  // グレー（結果0の場合など）
+  &.null {
+    background-color: var(--clGray_ed);
+  }
+  .title {
+    text-align: center;
+  }
+  .txt {
+    font-size: rem(13);
+
+    strong {
+      font-size: rem(14);
+    }
+  }
+}

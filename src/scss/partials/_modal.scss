@@ -1,0 +1,13 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+モーダル
+============================*/
+
+// bootstrap上書き
+.modal-footer {
+  border-top: none;
+  .btn {
+    font-weight: bold;
+  }
+}

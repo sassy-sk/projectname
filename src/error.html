@@ -1,0 +1,123 @@
+<%# サービスタイトル｜サービス説明を入力 %>
+<% const title = 'リベシティジョブサーチ｜信頼できる仲間とつながる、理想の仕事を探そう'; %>
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <%# head読み込み %>
+  <%- include('parts/_head', {path: '', title: title})%>
+  <%# 各ページのCSS/JS読み込み %>
+  <link rel="stylesheet" href="./scss/page.scss">
+</head>
+
+<body>
+  <%# header読み込み %>
+  <%- include('parts/_header', {path: ''})%>
+
+  <main>
+
+    <!-- 【sys】本当は#wrapperはページに1つだけなのですが、モック用に各種のエラー表示を並べる為に複数使っています -->
+    <!-- 【sys】400 Bad Request.の場合 -->
+    <div id="wrapper" class="error">
+      <section class="errorDetail">
+        <p class="caption_en">400 Bad Request.</p>
+        <img src="assets/images/error01.png" alt="">
+        <div class="text_wrapper">
+          <h2 class="caption">リクエストに問題があります</h2>
+          <p class="text">URLに間違いがないかご確認ください。</p>
+        </div>
+        <div class="text-center">
+          <button type="button" onclick="location.href='index.html'" class="btn btn_clMain01 btn_toTop">TOPページに戻る</button>
+        </div>
+      </section>
+    </div>
+    <!-- /wrapper -->
+
+    <!-- 【sys】403 Forbidden.の場合 -->
+    <div id="wrapper" class="error">
+      <section class="errorDetail">
+        <p class="caption_en">403 Forbidden.</p>
+        <img src="assets/images/error01.png" alt="">
+        <div class="text_wrapper">
+          <h2 class="caption">お探しのページに<br class="sp_only">アクセスすることはできません</h2>
+          <p class="text">URLに間違いがないかご確認ください。</p>
+        </div>
+        <div class="text-center">
+          <button type="button" onclick="location.href='index.html'" class="btn btn_clMain01 btn_toTop">TOPページに戻る</button>
+        </div>
+      </section>
+    </div>
+    <!-- /wrapper -->
+
+    <!-- 【sys】404 Not Found.の場合 -->
+    <div id="wrapper" class="error">
+      <section class="errorDetail">
+        <p class="caption_en">404 Not Found.</p>
+        <img src="assets/images/error01.png" alt="">
+        <div class="text_wrapper">
+          <p class="text">こちらの求人は、現在非公開になっているか、<br class="sp_only">掲載されていません。</p>
+        </div>
+        <div class="text-center">
+          <button type="button" onclick="location.href='index.html'" class="btn btn_clMain01 btn_toTop">TOPページに戻る</button>
+        </div>
+      </section>
+    </div>
+    <!-- /wrapper -->
+
+    <!-- 【sys】500 Internal Server Error.の場合 -->
+    <div id="wrapper" class="error">
+      <section class="errorDetail">
+        <p class="caption_en">500 Internal Server Error.</p>
+        <img src="assets/images/error01.png" alt="">
+        <div class="text_wrapper">
+          <h2 class="caption">現在ページが表示できません</h2>
+          <p class="text">システムに一時的な問題が発生しています。<br>しばらく時間をおいてから、<br class="sp_only">再度アクセスしてください。</p>
+          <p class="text mt-3">【それでもページが表示されない場合】<br>不具合報告からご連絡ください。</p>
+        </div>
+        <div class="text-center">
+          <button type="button" onclick="window.open('#', '_blank')" class="btn btn_clMain01 btn_toTop">不具合報告</button>
+        </div>
+      </section>
+    </div>
+    <!-- /wrapper -->
+
+    <!-- 【sys】503 Service Unavailable.の場合 -->
+    <div id="wrapper" class="error">
+      <section class="errorDetail">
+        <p class="caption_en">503 Service Unavailable.</p>
+        <img src="assets/images/error01.png" alt="">
+        <div class="text_wrapper">
+          <h2 class="caption">ページが表示できませんでした</h2>
+          <p class="text">現在アクセスが集中しており、<br class="sp_only">ページを開くまでに時間がかかっています。</p>
+          <p class="text pc_only">しばらく時間をおいてから、再度アクセスしてください。</p>
+          <p class="text sp_only mt-3">しばらく時間をおいてから、<br>再度アクセスしてください。</p>
+        </div>
+      </section>
+    </div>
+    <!-- /wrapper -->
+
+    <!-- 【sys】503 Service Unavailable.の場合 -->
+    <div id="wrapper" class="error">
+      <section class="errorDetail">
+        <p class="caption_en">503 Service Unavailable.</p>
+        <img src="assets/images/error01.png" alt="">
+        <div class="text_wrapper">
+          <h2 class="caption">現在、メンテナンス中です</h2>
+          <p class="text">しばらく時間をおいてから、<br class="sp_only">再度アクセスしてください。</p>
+        </div>
+      </section>
+    </div>
+    <!-- /wrapper -->
+
+  </main>
+
+  <%# ページトップ読み込み %>
+  <%- include('parts/_pagetop', {path: '',is_upper: false})%>
+
+  <%# footer読み込み %>
+  <%- include('parts/_footer', {path: ''})%>
+
+</body>
+
+</html>

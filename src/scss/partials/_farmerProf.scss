@@ -1,0 +1,53 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+生産者情報
+============================*/
+.farmer_prof {
+  background-color: #fff;
+  border: var(--clGray_cc) 1px solid;
+  border-radius: 6px;
+  position: relative;
+  &::after {
+    content: "\f105";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    font-family: fontAwesome;
+    color: var(--clGray_97);
+  }
+  .link {
+    display: grid;
+    grid-template-areas:
+      "image title"
+      "image name"
+      "image status";
+    grid-template-columns: 80px 1fr;
+    gap: 0 16px;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: var(--clText);
+    img {
+      grid-area: image;
+      width: 80px;
+      min-width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: var(--clGray_ed) 1px solid;
+    }
+    .title {
+      grid-area: title;
+      font-size: rem(12);
+    }
+    .name {
+      grid-area: name;
+      font-size: rem(14);
+      font-weight: bold;
+    }
+    .status {
+      grid-area: status;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+ページトップボタン
+============================*/
+
+#pagetop {
+  @include flexCenter(xy);
+  position: fixed;
+  z-index: 100;
+  right: 24px;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  font-size: rem(22);
+  color: #fff;
+  background-color: var(--clMain01);
+  border-radius: 50%;
+  border: solid 1px #fff;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+
+  @include sp {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  &:hover {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+}

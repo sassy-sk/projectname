@@ -1,0 +1,41 @@
+<%# サービスタイトル｜サービス説明を入力 %>
+<% const title = 'サイト名｜サイト説明'; %>
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <%# head読み込み %>
+  <%- include('parts/_head', {path: '', title: title})%>
+  <%# 各ページのCSS/JS読み込み %>
+  <%# Fontawesomeアニメーション用CDN %>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome-animation@1.1.1/css/font-awesome-animation.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./scss/loading.scss" />
+</head>
+
+<body>
+  <%# header読み込み %>
+  <%- include('parts/_header', {path: ''})%>
+
+  <main>
+    <div id="wrapper" class="">
+      <section class="loading_wrapper">
+        <div class="loading_box">
+          <p class="balloon">Now Loading！</p>
+          <%# マイクロサービスごとにライオンアイコンのコードが変わります faa-tada animatedクラス追加でアニメーション %>
+          <i class="fak fa-libelion-face fa-beat" aria-hidden="true"></i>
+          <p class="txt">
+            リベシティマップにログイン中です。<br>
+            少しだけお待ちください。
+          </p>
+        </div>
+      </section>
+    </div>
+    <!-- /wrapper -->
+  </main>
+
+  <%# footer読み込み %>
+  <%- include('parts/_footer', {path: ''})%>
+</body>
+
+</html>

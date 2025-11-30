@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/*============================
+基本スタイル設定
+============================*/
+/* ボタンサイズ
+　　@include btnSize(s);
+　　引数のs,m,lでサイズを選択 */
+/* ユーザーアイコン（[class*="statusBorder_"]を付与したimgタグにinclude）
+　　@include profIconSize(s);
+　　引数のs,m,lでサイズを選択
+  */
+/* 会員区分アイコンのサイズ(.icon_statusにinclude)
+　　@include statusIconSize(s);
+　　引数のs,m,lでサイズを選択 */
+/*============================
+ログインローディング
+============================*/
+.loading_wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+.loading_box .txt {
+  color: #fff;
+  line-height: 1.7;
+  font-size: 1.125rem;
+  margin: 0 30px;
+}
+.loading_box i {
+  font-size: 75px;
+  margin: 0 0 26px;
+  color: #fff6d1;
+}
+
+.balloon {
+  position: relative;
+  width: 220px;
+  height: 36px;
+  margin: 0 auto 30px;
+  background: #fff6d1;
+  text-align: center;
+  text-indent: 1em;
+  font-size: 1.125rem;
+  font-weight: bold;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+.balloon::after {
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  position: absolute;
+  border-color: rgba(255, 246, 209, 0);
+  border-top-width: 12px;
+  border-bottom-width: 12px;
+  border-left-width: 12px;
+  border-right-width: 12px;
+  margin-left: -12px;
+  border-top-color: #fff6d1;
+  top: 100%;
+  left: 50%;
+}

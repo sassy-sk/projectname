@@ -1,0 +1,124 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+ページネーション
+============================*/
+
+.paginationBox {
+  margin: 10px 0 0;
+
+  a {
+    color: var(--clText);
+  }
+  .pagination {
+    @include flexCenter(xy);
+
+    li {
+      background-color: #fff;
+      border-radius: 4px;
+      min-width: 45px;
+
+      .page-link {
+        font-size: rem(14);
+        border-color: var(--clGray_cc);
+        min-width: 40px;
+        min-height: 40px;
+        padding: 5px;
+        @include flexCenter(xy);
+
+        &:hover,
+        &:active {
+          color: var(--clText);
+          background-color: var(--clMain01_lighter);
+          opacity: 1;
+        }
+        &.is_current {
+          background-color: var(--clMain01_light);
+          border-color: var(--clGray_cc);
+          color: var(--clText);
+        }
+      }
+
+      &:first-child,
+      &:last-child {
+        .page-link {
+          border-radius: 4px !important;
+        }
+      }
+      &:first-child {
+        margin: 0 20px 0 0;
+        position: relative;
+
+        &::after {
+          content: "…";
+          font-weight: bold;
+          display: block;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: -17px;
+          line-height: 40px;
+        }
+      }
+      &:last-child {
+        margin: 0 0 0 20px;
+        position: relative;
+
+        &::before {
+          content: "…";
+          font-weight: bold;
+          display: block;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: -17px;
+          line-height: 40px;
+        }
+      }
+      &:nth-child(2) .page-link {
+        border-radius: 4px 0 0 4px;
+      }
+      &:nth-last-child(2) .page-link {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+  .move {
+    @include flexCenter(xy);
+    margin: 10px 0 0;
+
+    span.bg {
+      margin: 5px;
+    }
+    a {
+      background-color: #fff;
+      display: block;
+      border: 1px solid var(--clGray_cc);
+      border-radius: 4px;
+      line-height: 40px;
+      width: 132px;
+      @include flexCenter(xy);
+      font-size: rem(14);
+      position: relative;
+
+      &:hover,
+      &:active {
+        color: var(--clText);
+        background-color: var(--clMain01_lighter);
+        opacity: 1;
+      }
+      &.prev i,
+      &.next i {
+        color: var(--clGray_97);
+        font-size: rem(16);
+        @include center(y);
+      }
+      &.prev i {
+        left: 8px;
+      }
+      &.next i {
+        right: 8px;
+      }
+    }
+  }
+}

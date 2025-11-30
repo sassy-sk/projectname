@@ -1,0 +1,48 @@
+<%#
+  商品（サービス）カード
+  include('parts/_productCard', {path : '', status : 'is_soldout', favBtn: false, provider: false})
+  入力項目：
+  status -> is_soldout：売り切れ
+  favBtn -> お気に入りボタンの表示、非表示はfalse
+  provider -> 提供者の表示、非表示はfalse
+%>
+
+<section class="itemCard <%= status %>" ontouchend>
+  <div class="img_wrap">
+    <img src="assets/images/product_sample1.png" alt="{商品名が入ります}" />
+    <!-- 【sys】画像の登録がない場合 -->
+    <!-- <img src="assets/images/noimage.png" alt="{商品名が入ります}"> -->
+    <% if(favBtn) { %>
+    <!-- 【sys】お気に入り数を表示 -->
+    <%- include('_favBtn', {display: true, count: '50', isActive: true}) %>
+    <% } %>
+  </div>
+  <div class="item_wrap">
+    <!-- 【sys】商品タイトル：最大50文字 -->
+    <h3 class="title">
+      <!-- 【sys】出品完了画面の場合は、外部遷移にしてください：target="_blank" -->
+      <a href="parts_sample.html" class="link">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</a>
+    </h3>
+    <!-- 【sys】産地を表示 -->
+    <p class="area"><i class="fa-solid fa-location-dot"></i>和歌山県</p>
+    <div class="price_wrap">
+      <!-- 【sys】3桁カンマ付きの金額 -->
+      <span class="price">99,999</span>
+      <!-- 【sys】送料無料は is_included クラスを追加 -->
+      <span class="tag_shipping is_included">送料無料</span>
+    </div>
+  </div>
+
+  <% if(provider) { %>
+  <!-- 【sys】提供者情報 -->
+  <div class="provider">
+    <a href="prof.html" class="prof_link">
+      <div class="prof_icon">
+        <img src="assets/images/sample_user2.png" alt="{出品者名が入ります}" />
+        <span class="icon_status userstatus_pengin"></span>
+      </div>
+      <p class="prof_name">２０文字の名前例文これはテストですよよよ</p>
+    </a>
+  </div>
+  <% } %>
+</section>

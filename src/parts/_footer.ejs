@@ -1,0 +1,22 @@
+<footer id="globalFooter" class="footer">
+  <div class="footer_container">
+    <div class="btn_group">
+      <a href="https://libecity.com" target="_blank" class="btn btn_gradient"><img src="assets/images/ico_libecity.svg">リベシティに戻る</a>
+    </div>
+    <nav class="footer_nav">
+      <a href="https://libecity.com/">ログアウト</a>
+      <a href="rule.html">利用規約</a>
+      <a href="https://libecity.com/privacypolicy">プライバシーポリシー</a>
+    </nav>
+  </div>
+  <small class="copyright">&copy; リベシティ</small>
+</footer>
+
+<%# ページ離脱の警告モーダル %>
+<%- include('_modal_pageAlert', {path: ''})%>
+
+<%# 電話番号登録モーダル読み込み %>
+<%- include('_modal_telSetting', {path: ''})%>
+
+<%# 新入生向けモーダル読み込み %>
+<%- include('_modal_statusFree', {path: ''})%>

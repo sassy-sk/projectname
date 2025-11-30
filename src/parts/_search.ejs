@@ -1,0 +1,150 @@
+<div class="searchBox">
+  <div class="searchBox_order">
+    <!--
+      【sys】セレクトボックスのselectedについて
+      - カテゴリを選択した時
+      - 検索をした時
+        ->会員区分順をデフォルト（selected）
+      - トップページの「新着商品をもっと見る」から遷移した場合
+        ->新着順をデフォルト（selected）
+    -->
+    <select name="" id="">
+      <optgroup label="並び順">
+        <!-- 【sys】会員区分が高い順。トラ、パンダ、イルカ、ペンギン -->
+        <option value="member" selected>会員区分順</option>
+        <option value="like">お気に入りが多い順</option>
+        <option value="new">新着順</option>
+        <option value="many">いいねが多い順</option>
+        <option value="many">レビューが多い順</option>
+        <option value="low">価格が安い順</option>
+        <option value="expensive">価格が高い順</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <button type="button" class="btn btn_clMain btn_search" data-bs-toggle="modal" data-bs-target="#sortSearchModal"><i class="fas fa-filter" aria-hidden="true"></i>絞り込み</button>
+
+  <!-- 絞り込み検索モーダル -->
+  <div class="modal fade" id="sortSearchModal" tabindex="-1" role="dialog" aria-labelledby="sortSearchModalTitle" aria-hidden="true">
+    <form name="" autocomplete="off" method="" action="search-index.html">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fw-bold">絞り込み</h2>
+            <button type="button" class="btn-close evasionBtn" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="reset_sort">
+              <input type="reset" value="絞り込み条件をクリア">
+            </div>
+            <p class="fw-bold mb-1">価格帯</p>
+            <div class="d-flex align-items-center mb-3">
+              <div class="sort_order">
+                <%# id="js_minPrice"付与で最低価格と最高価格の表示制御 %>
+                <select name="minPrice" id="js_minPrice">
+                  <!-- 【sys】3桁カンマ付きの金額 -->
+                  <!-- 【sys】1,000〜5,000は1,000刻み、5,000〜30,000は5,000刻み -->
+                  <option value="" selected>選択してください</option>
+                  <% var counter = 1; %>
+                  <% while (counter <= 10) { %>
+                  <option value="<%= counter %>,000円"><%= counter %>,000円</option>
+                  <% counter++; %>
+                  <% } %>
+                  <% var ary1 = ['15', '20', '25', '30']; %>
+                  <% ary1.forEach(function (value, index) { %>
+                  <option value="<%= value %>,000円"><%= value %>,000円</option>
+                  <% }); %>
+                </select>
+              </div>
+
+              <div class="mx-1">〜</div>
+
+              <div class="sort_order">
+                <%# id="js_maxPrice"付与で最低価格と最高価格の表示制御 %>
+                <select name="maxPrice" id="js_maxPrice">
+                  <!-- 【sys】3桁カンマ付きの金額 -->
+                  <!-- 【sys】1,000〜5,000は1,000刻み、5,000〜30,000は5,000刻み -->
+                  <option value="" selected>選択してください</option>
+                  <% var counter = 1; %>
+                  <% while (counter <= 10) { %>
+                  <option value="<%= counter %>,000円"><%= counter %>,000円</option>
+                  <% counter++; %>
+                  <% } %>
+                  <% var ary1 = ['15', '20', '25', '30']; %>
+                  <% ary1.forEach(function (value, index) { %>
+                  <option value="<%= value %>,000円"><%= value %>,000円</option>
+                  <% }); %>
+                  <option value="30,001円以上">30,001円以上</option>
+                </select>
+              </div>
+            </div>
+
+            <p class="fw-bold mb-1">カテゴリ</p>
+            <div class="mb-3">
+              <!-- 【sys】カテゴリは固定です -->
+              <select name="categorySelect" id="categorySelect">
+                <% var ary1 = ['すべて', '野菜', '果物', '肉類', '卵類', '魚介類', '酒類', 'お茶類', '米・穀類', 'はちみつ', '加工食品・調味料', '花・植物']; %>
+                <% ary1.forEach(function (value, index) { %>
+                <option value="<%= value %>"><%= value %></option>
+                <% }); %>
+              </select>
+            </div>
+
+            <!-- 【sys】And検索 -->
+            <p class="fw-bold mb-1">生産者の会員区分</p>
+            <div class="mb-3">
+              <ul class="search_memberStatus" id="js_search_memberStatus">
+                <!-- シティの会員履歴の表示順と合わせる -->
+                <li class="checkbox member_tora is_current">
+                  <label for="tora" class="is_current">
+                    <input type="checkbox" value="" id="tora" checked><span></span>トラ会員
+                  </label>
+                </li>
+                <li class="checkbox member_panda is_current">
+                  <label for="panda" class="is_current">
+                    <input type="checkbox" value="" id="panda" checked><span></span>パンダ会員
+                  </label>
+                </li>
+                <li class="checkbox member_iruka is_current">
+                  <label for="iruka" class="is_current">
+                    <input type="checkbox" value="" id="iruka" checked><span></span>イルカ会員
+                  </label>
+                </li>
+                <li class="checkbox member_pengin is_current">
+                  <label for="pengin" class="is_current">
+                    <input type="checkbox" value="" id="pengin" checked><span></span>ペンギン会員
+                  </label>
+                </li>
+                <li class="checkbox member_kodomo is_current">
+                  <label for="kodomo" class="is_current">
+                    <input type="checkbox" value="" id="kodomo" checked><span></span>こども会員
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 【sys】And検索 -->
+            <p class="fw-bold mb-1">表示設定</p>
+            <div id="js_search_displayStatus" class="mb-3">
+              <div class="checkbox is_current">
+                <label for="nowOnSale" class="is_current">
+                  <input type="checkbox" value="" id="nowOnSale" checked><span></span>販売中の商品のみ表示
+                </label>
+              </div>
+              <div class="checkbox">
+                <label for="shippingIncluded">
+                  <input type="checkbox" value="" id="shippingIncluded"><span></span>送料無料の商品のみ表示
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn_clGray" data-bs-dismiss="modal">キャンセル</button>
+            <input type="submit" class="btn btn_clMain" value="絞り込み結果を表示">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- /絞り込み検索モーダル -->
+</div>

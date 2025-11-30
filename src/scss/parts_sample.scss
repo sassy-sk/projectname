@@ -1,0 +1,765 @@
+@use "partial" as *; // 名前空間を省略
+
+/*============================
+商品（サービス）詳細
+============================*/
+
+// フラッシュメッセージ
+@use "./partials/flashMessage";
+
+// 商品詳細・検索結果カテゴリー
+@use "./partials/categoryIndex";
+
+// 商品写真モーダル（swiper)
+@use "./partials/_modal_swiperImg";
+
+// スマホ版商品写真(Swiper利用・768px以下で発動)
+@use "./partials/_sp_swiperImg";
+
+// 質問コメント
+@use "./partials/userComment";
+
+// 商品レビュー
+@use "./partials/review";
+
+// 商品カード
+@use "./partials/itemCard";
+
+// お気に入りボタン
+@use "./partials/favBtn";
+
+// 生産者情報
+@use "./partials/farmerProf";
+
+/*============================
+セクションタイトル
+============================*/
+.section {
+  margin-bottom: 50px;
+  &_title {
+    font-size: rem(20);
+    font-weight: bold;
+    background-color: var(--clMain01_light);
+    padding: 10px 20px;
+    margin-bottom: 24px;
+    // セクションタイトル中のユーザーネーム（三点リーダー）
+    &.title_ellipsis {
+      @media screen and (max-width: 600px) {
+        @include flexCenter(y);
+        .ellipsis {
+          @include ellipsis(1);
+          display: inline-block;
+        }
+        .textUnit {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  &_btnArea {
+    text-align: center;
+    margin-top: 24px;
+  }
+}
+
+/*============================
+商品詳細
+============================*/
+.productDetail {
+  &_grid {
+    display: grid;
+    grid-template-areas:
+      "image message"
+      "image content";
+    grid-template-columns: 480px 1fr;
+    gap: 30px 45px;
+    @media screen and (max-width: 1200px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include sp {
+      grid-template-areas:
+        "message"
+        "image"
+        "content";
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  // 左側：商品画像エリア
+  &_image {
+    grid-area: image;
+    // PC用メインイメージ
+    .main_img {
+      width: 100%;
+      margin-bottom: 10px;
+      position: relative;
+      img {
+        aspect-ratio: 3 / 2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+    }
+    // PC用サブイメージ
+    .sub_img {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      .img {
+        max-width: calc((100% / 2) - 5px);
+        width: 100%;
+        @include sp {
+          white-space: nowrap;
+          min-width: calc(100% / 5);
+        }
+        img {
+          aspect-ratio: 3 / 2;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 6px;
+        }
+      }
+    }
+
+    // 画像モーダル
+    .swiperImgModalOpen {
+      transition: 0.2s;
+      &:hover {
+        opacity: 0.8;
+        cursor: zoom-in;
+      }
+    }
+  }
+
+  // 右上：メッセージボックス
+  &_message {
+    grid-area: message;
+  }
+  // 右側：コンテンツエリア
+  &_content {
+    grid-area: content;
+    // 商品（サービス）名
+    .product_name {
+      font-size: rem(24);
+      margin-bottom: 12px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    // 生産地・在庫数
+    .product_info {
+      margin-bottom: 12px;
+      i {
+        color: var(--clMain01);
+      }
+      // 生産地
+      .area {
+        display: inline-block;
+      }
+      // 在庫数
+      .stock {
+        display: inline-block;
+        margin-left: 1rem;
+        img {
+          vertical-align: -4px;
+        }
+      }
+    }
+
+    // 価格・消費税・送料
+    .product_price {
+      @include flexCenter(y);
+      margin-bottom: 12px;
+
+      .price {
+        font-size: rem(30);
+        font-weight: bold;
+        text-align: right;
+        // iPhone safari余白対策
+        letter-spacing: -0.04rem;
+        &::before {
+          content: "¥";
+          font-size: rem(24);
+          margin-right: 5px;
+        }
+      }
+
+      .tax {
+        font-size: rem(12);
+      }
+
+      .tag_shipping {
+        display: inline-block;
+        padding: 2px 6px;
+        font-size: rem(12);
+        border-radius: 55px;
+        margin-left: 5px;
+        &.is_included {
+          background-color: var(--clMain01_light);
+        }
+        .fee {
+          margin-left: 5px;
+          &::before {
+            content: "¥";
+          }
+        }
+      }
+    }
+
+    // いいね！
+    .like {
+      color: var(--clMain01);
+      font-weight: bold;
+      margin-bottom: 25px;
+      a {
+        text-decoration: underline;
+        font-size: rem(13);
+      }
+    }
+
+    // 注文ボタン・お気に入り・生産者情報
+    .order_grid {
+      display: grid;
+      grid-template-areas:
+        "buttons"
+        "farmerInfo";
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+      @include sp {
+        grid-template-areas:
+          "farmerInfo"
+          "buttons";
+      }
+
+      // お気に入りに追加・注文ボタン
+      .order_buttons {
+        grid-area: buttons;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 8px;
+        @media screen and (max-width: 1200px) {
+          grid-template-columns: 1fr 1fr;
+        }
+        @include sp {
+          grid-template-columns: 67px 1fr;
+        }
+        .btn_fav {
+          font-weight: bold;
+          padding: 10px 0;
+          box-sizing: border-box;
+          @include sp {
+            flex-basis: 67px;
+          }
+          i {
+            transform: scale(1.2);
+          }
+          .txt {
+            font-size: rem(14);
+            &::after {
+              content: "に追加";
+            }
+          }
+          .count {
+            display: none;
+          }
+          &.is_active {
+            i {
+              color: var(--clAttention);
+              font-weight: bold;
+            }
+            .txt {
+              &::after {
+                content: "から削除";
+              }
+            }
+          }
+
+          @include sp {
+            .txt {
+              display: none;
+              &::after {
+                content: "";
+              }
+            }
+            .count {
+              display: inline-block;
+              margin: 0;
+            }
+            &.is_active {
+              &::after {
+                content: "";
+              }
+            }
+          }
+        }
+        .btn_order {
+          flex: 1;
+          font-weight: bold;
+          padding: 10px;
+          box-sizing: border-box;
+          &:disabled {
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    // 商品説明（続きを読む）
+    .product_description {
+      position: relative;
+      .readMore_inner {
+        transition: 0.5s;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        .caption {
+          font-size: rem(20);
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+        .text {
+          font-size: rem(14);
+          padding-bottom: 30px;
+        }
+      }
+      // 続きを読むボタン
+      .readMore_btn {
+        display: none;
+      }
+
+      // 続きを読むボタン表示の場合
+      &.is_accordion {
+        .readMore_inner {
+          // jsで設定した高さを入力
+          max-height: 360px;
+          overflow: hidden;
+          //アニメーション用
+          transition: all 0.5s;
+          &.readMoreText {
+            position: relative;
+            // 白グラデーション
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 60px;
+              background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 8) 70%);
+            }
+          }
+        }
+        // 「続きを見る」「閉じる」ボタン
+        .readMore_btn {
+          display: block;
+          color: var(--clMain01);
+          font-size: rem(14);
+          font-weight: bold;
+          text-align: center;
+          cursor: pointer;
+          &::after {
+            content: "\f078";
+            font-family: "Font Awesome 6 Pro";
+            margin-left: 5px;
+          }
+          // 「閉じる」ボタン
+          &.is_open {
+            bottom: 0;
+            &::after {
+              content: "\f077";
+            }
+          }
+        }
+      }
+
+      // 全文表示の場合
+      &.is_active {
+        .readMore_inner {
+          overflow: visible;
+          &.readMoreText {
+            &::after {
+              background: transparent;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+
+    // 発送に関する情報
+    .shipping_info {
+      .caption {
+        background-color: var(--clMain01_light);
+        font-size: rem(15);
+        padding: 6px 12px;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+      .text {
+        font-size: rem(14);
+        margin-bottom: 30px;
+        padding: 0 12px;
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// 商品レビュー
+.productReview {
+  // レビュー詳細ページ用class
+  &.reviewPage {
+    .productReview_inner {
+      max-width: 820px;
+      padding: 0 0 60px 0;
+      @include mq(320px, 819px) {
+        padding: 0 10px 60px 10px;
+      }
+    }
+    .productReview_label {
+      font-size: rem(28);
+    }
+
+    // 商品レビュー全体
+    .farmerReview_label {
+      font-size: rem(18);
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+    // レビュー詳細ページ・商品名
+    .productInfo {
+      .link {
+        @include flexCenter(y);
+        gap: 20px;
+        margin-bottom: 40px;
+        img {
+          aspect-ratio: 3 / 2;
+          object-fit: cover;
+          width: 174px;
+          border-radius: 4px;
+          @include sp {
+            width: 95px;
+          }
+        }
+      }
+    }
+    // レビュー詳細ページ・いいね！
+    .productReview_like {
+      text-align: center;
+      font-size: rem(20);
+      @include sp {
+        font-size: rem(16);
+      }
+      .text {
+        font-size: rem(18);
+        @include sp {
+          font-size: rem(13);
+        }
+      }
+    }
+  }
+
+  &_inner {
+    max-width: 820px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 0;
+    box-sizing: border-box;
+    @include mq(320px, 819px) {
+      width: 100%;
+      padding: 60px 20px;
+    }
+  }
+  &_label {
+    font-size: rem(22);
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  &_like {
+    color: var(--clMain01);
+    font-weight: bold;
+    margin-bottom: 20px;
+    .text {
+      font-size: rem(13);
+    }
+  }
+  &_wrap {
+    margin-bottom: 20px;
+  }
+
+  // すべてのレビューを見る
+  .btn_area {
+    text-align: center;
+    .btn_showAllReview {
+      font-size: rem(14);
+      font-weight: bold;
+      color: var(--clMain01);
+      min-width: 300px;
+      padding: 12px 0;
+      position: relative;
+      i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 5px;
+      }
+    }
+  }
+}
+
+// 生産者情報
+.farmerInfo {
+  background-color: var(--clMain01_lighter);
+  &_inner {
+    max-width: 820px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    @include mq(320px, 819px) {
+      width: 100%;
+      padding: 60px 20px;
+    }
+  }
+  .label {
+    font-size: rem(22);
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  .prof_grid {
+    display: grid;
+    grid-template-areas:
+      "image name button"
+      "image status button"
+      "image area button"
+      "image like button";
+    grid-template-columns: 120px 1fr auto;
+    align-items: center;
+    gap: 0 16px;
+    @include sp {
+      grid-template-areas:
+        "image name"
+        "image status"
+        "image area"
+        "image like"
+        "button button";
+      grid-template-columns: 80px 1fr;
+      gap: 5px 16px;
+    }
+    .img {
+      grid-area: image;
+      img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        @include sp {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+    .name {
+      grid-area: name;
+      font-size: rem(18);
+      font-weight: bold;
+    }
+    .status {
+      grid-area: status;
+    }
+    .area {
+      grid-area: area;
+      font-size: rem(13);
+      i {
+        color: var(--clMain01);
+      }
+    }
+    .like {
+      grid-area: like;
+      color: var(--clMain01);
+      font-weight: bold;
+      a {
+        text-decoration: underline;
+        font-size: rem(13);
+      }
+    }
+
+    .btnWrap {
+      grid-area: button;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      @include sp {
+        grid-column: span 2;
+        justify-self: center;
+      }
+      .btn_prof {
+        @include flexCenter(xy);
+        column-gap: 7px;
+        width: 250px;
+        padding: 10px 15px 10px 0;
+        font-size: rem(13);
+        font-weight: bold;
+        white-space: nowrap;
+        position: relative;
+        i {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 5px;
+        }
+      }
+    }
+  }
+}
+
+// 資格・許可証情報
+.certificateInfo {
+  &_inner {
+    width: 820px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    @include mq(320px, 819px) {
+      width: 100%;
+      padding: 60px 20px;
+    }
+  }
+  &_label {
+    font-size: rem(22);
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  &_textArea {
+    // 登録がない場合
+    .null {
+      background-color: var(--clGray_ed);
+    }
+    .list {
+      li {
+        position: relative;
+        padding-left: 1rem;
+        &:before {
+          content: "・";
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .expiration {
+          font-size: rem(12);
+        }
+      }
+    }
+    a {
+      text-decoration: underline;
+    }
+    .moreInfo {
+      font-size: rem(13);
+      margin-top: 20px;
+    }
+  }
+}
+
+// この生産者の商品 / 同じカテゴリの商品
+.otherProducts {
+  .cardList {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px 10px;
+    @include sp {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  // もっと見る
+  .btn_more {
+    min-width: 300px;
+    font-size: rem(14);
+    font-weight: bold;
+    padding: 12px;
+    box-sizing: border-box;
+    position: relative;
+    i {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5px;
+    }
+  }
+}
+
+// フッター部注文ボタン
+.footer_order {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  @include flexCenter(xy);
+  column-gap: 8px;
+  z-index: 200;
+  padding: 1rem 20px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  &_text {
+    text-align: center;
+    .price_text {
+      font-size: rem(12);
+    }
+    .price {
+      font-size: rem(30);
+      font-weight: bold;
+      padding-right: 1rem;
+      @include sp {
+        font-size: rem(20);
+      }
+      &:before {
+        content: "¥";
+        font-size: rem(24);
+        margin-right: 5px;
+        @include sp {
+          font-size: rem(18);
+        }
+      }
+    }
+  }
+  &_favBtn {
+    position: relative;
+    &:hover {
+      .tip {
+        transform: translateX(-50%) translateY(-100%);
+        transition-property: transform, opacity;
+        transition-duration: 0.2s;
+        top: -5px;
+        opacity: 1;
+      }
+    }
+    .favBtn {
+      min-width: 72px;
+      padding: 10px;
+      box-sizing: border-box;
+      font-weight: bold;
+      @include sp {
+        min-width: 67px;
+      }
+    }
+  }
+  .btn_order {
+    flex-basis: 280px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+    @include sp {
+      flex: 1;
+    }
+  }
+}

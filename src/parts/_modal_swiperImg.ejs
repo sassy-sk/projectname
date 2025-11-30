@@ -1,0 +1,32 @@
+<%#
+  商品画像一覧モーダル
+  include('parts/_modal_swiperImg', {path: ''})
+%>
+
+<!-- 【sys】登録画像がない場合は非表示 -->
+<div class="swiperImgModal">
+  <div class="swiperImgModal_header">
+    <button type="button" class="swiperImgModal_close js_swiperImgModalClose evasionBtn"><i class="fas fa-times"></i>閉じる</button>
+  </div>
+  <div class="swiperImgModal_body js_swiperImgModalClickArea">
+    <div class="swiper swiperMain">
+      <div class="swiper-wrapper">
+        <% for (var i = 0; i < 10; i++) { %>
+        <div class="swiper-slide"><img src="assets/images/product_sample1.png" alt="{商品名が入ります}"></div>
+        <% } %>
+      </div>
+      <!-- arrow -->
+      <div class="swiper-button-next"><i class="fa-solid fa-chevron-right"></i></div>
+      <div class="swiper-button-prev"><i class="fa-solid fa-chevron-left"></i></div>
+    </div>
+
+    <div class="swiper swiperThumbnail">
+      <div class="swiper-wrapper">
+        <% for (var i = 0; i < 10; i++) { %>
+        <div class="swiper-slide"><img src="assets/images/product_sample1.png" alt="{商品名が入ります}"></div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /商品画像一覧モーダル -->

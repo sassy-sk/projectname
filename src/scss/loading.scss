@@ -1,0 +1,68 @@
+@use "./partial" as *; // 名前空間を省略
+
+/*============================
+ログインローディング
+============================*/
+
+.loading_wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.7);
+  @include flexCenter(xy);
+}
+.loading_box {
+  @include flexCenter(xy);
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+
+  .txt {
+    color: #fff;
+    line-height: 1.7;
+    font-size: rem(18);
+    margin: 0 30px;
+  }
+
+  i {
+    font-size: 75px;
+    margin: 0 0 26px;
+    color: #fff6d1;
+  }
+}
+.balloon {
+  position: relative;
+  width: 220px;
+  height: 36px;
+  margin: 0 auto 30px;
+  background: #fff6d1;
+  text-align: center;
+  text-indent: 1em;
+  font-size: rem(18);
+  font-weight: bold;
+  border-radius: 50px;
+  @include flexCenter(xy);
+  opacity: 0.9;
+
+  &::after {
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    pointer-events: none;
+    position: absolute;
+    border-color: rgba(255, 246, 209, 0);
+    border-top-width: 12px;
+    border-bottom-width: 12px;
+    border-left-width: 12px;
+    border-right-width: 12px;
+    margin-left: -12px;
+    border-top-color: #fff6d1;
+    top: 100%;
+    left: 50%;
+  }
+}

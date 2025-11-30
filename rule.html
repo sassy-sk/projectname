@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>サイト名｜サイト説明</title>
+    <meta name="description" content="サービス説明を入力" />
+    <meta property="og:title" content="サイト名｜サイト説明" />
+    <meta property="og:site_name" content="サイト名｜サイト説明" />
+    <meta property="og:description" content="サービス説明を入力" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="assets/images/ogp.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- ファビコン -->
+    <link rel="icon" href="assets/images/favicon.ico" />
+    <!-- スマホ用アイコン -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+    <!-- Windows用アイコン -->
+    <meta name="application-name" content="サイト名｜サイト説明" />
+    <meta name="msapplication-square70x70logo" content="assets/images/70x70.png" />
+    <meta name="msapplication-square150x150logo" content="assets/images/150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="assets/images/webicon_wide.png" />
+    <meta name="msapplication-square310x310logo" content="assets/images/310x310.png" />
+    <!-- ▼デザイナーさんに確認し、カラーの最適化が必要 -->
+    <meta name="msapplication-TileColor" content="#38AD58" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap用popper-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <!-- 共通css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" media="all" href="data:application/octet-stream;base64,QGNoYXJzZXQgIlVURi04IjsKQHVzZSAiLi9wYXJ0aWFsIiBhcyAqOyAvLyDlkI3liY3nqbrplpPjgpLnnIHnlaUKCi8vIOOBk+OBruODleOCoeOCpOODq+OBr+WFqOODmuODvOOCuOOBq+WFsemAmuOBruioreWumuOCkuiomOi8ieOBl+OBpuOBhOOBvuOBmeOAggovLyDopIfmlbDjga7jg5rjg7zjgrjjgavlv4XopoHjgarjgrnjgr/jgqTjg6vjgpLoqJjovInjgZfjgabjgY/jgaDjgZXjgYTjgIIKCi8vIOODquOCu+ODg+ODiGNzcwpAdXNlICIuL3BhcnRpYWxzL3Jlc2V0IjsKCi8vIOaxjueUqOOCueOCv+OCpOODq+ODu+WFqOS9k+ODrOOCpOOCouOCpuODiOODu+OCueOCr+ODreODvOODq+ODkOODvApAdXNlICIuL3BhcnRpYWxzL2Jhc2UiOwoKLy8g5Lya5ZOh5Yy65YiG44O744Om44O844K244O844Ki44Kk44Kz44Oz44O744Om44O844K244O844OX44Ot44OV44Kj44O844OrCkB1c2UgIi4vcGFydGlhbHMvdXNlclN0YXR1cyI7CgovLyDjg5zjgr/jg7MKQHVzZSAiLi9wYXJ0aWFscy9idG4iOwoKLy8g44OV44Kp44O844OgCkB1c2UgIi4vcGFydGlhbHMvZm9ybSI7CgovLyDjg4bjgq3jgrnjg4gKQHVzZSAiLi9wYXJ0aWFscy90ZXh0IjsKCi8vIOODouODvOODgOODqwpAdXNlICIuL3BhcnRpYWxzL21vZGFsIjsKCi8vIOOCueODhuODvOOCv+OCueODoeODg+OCu+ODvOOCuO+8iOWjsuOCiuWIh+OCjOODu+e1kOaenDDnrYnvvIkKQHVzZSAiLi9wYXJ0aWFscy9zdGF0dXNNZXNzYWdlIjsKCi8vIOODmuODvOOCuOODiOODg+ODlwpAdXNlICIuL3BhcnRpYWxzL3BhZ2VUb3AiOwoKLy8g44OR44Oz44GP44Ga44Oq44K544OICkB1c2UgIi4vcGFydGlhbHMvYnJlYWRjcnVtYiI7CgovLyDjg4Tjg7zjg6vjg4Hjg4Pjg5cKQHVzZSAiLi9wYXJ0aWFscy90aXAiOwoKLy8g44OY44OD44OA44O8CkB1c2UgIi4vcGFydGlhbHMvaGVhZGVyIjsKCi8vIOODleODg+OCv+ODvApAdXNlICIuL3BhcnRpYWxzL2Zvb3RlciI7CgovLyDjg6zjgqTjgqLjgqbjg4gKQHVzZSAiLi9wYXJ0aWFscy9sYXlvdXQiOwoKLy8g44Oe44Kk44Kv44Ot44K144O844OT44K544GU44Go44Gu5YWx6YCaQ1NT44Gv5LiL6KiY44Gr6KiY6LyJ4pa8Cg==" />
+    <!-- 共通js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="assets/js/common.js"></script>
+    <!-- webfont -->
+    <!-- <script src="https://kit.fontawesome.com/xxxxxxxx.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" crossorigin href="./assets/css/rule.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header_container">
+        <nav class="header_navbar">
+          <h1 class="logo">
+            <a class="d-md-inline" href="index.html"><img src="assets/images/logo.svg" alt="リベシティファーマーズマーケット" /></a>
+          </h1>
+          <!-- 【sys】PC・ヘッダー検索エリア -->
+          <div class="header_search pc_only">
+            <form action="search-index.html" class="header_searchForm">
+              <input type="search" name="search" placeholder="検索キーワード（商品/生産者名など）を入力" />
+              <span class="bg">
+                <button type="submit" class="submitBtn"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+              </span>
+            </form>
+          </div>
+          <!-- ヘッダー内ナビゲーション -->
+          <div class="header_nav">
+            <!-- 【sys】電話番号未登録ユーザーの場合。クリックすると電話番号登録のお知らせモーダルを表示 -->
+            <!-- <button type="button" data-bs-toggle="modal" data-bs-target="#telsettingModal" class="btn btn_clMain02"><img src="assets/images/ico_service.svg" alt="">出品する</button> -->
+            <!-- /電話番号未登録ユーザー -->
+            <!-- 【sys】新入生の場合。クリックすると会員登録のお知らせモーダルを表示 -->
+            <button type="button" data-bs-toggle="modal" data-bs-target="#statusFreeModal" class="btn btn_clMain02 btn_service_order">出品する</button>
+            <!-- /新入生 -->
+            <a href="#" class="btn btn_clGray_outline btn_favorite">お気に入り</a>
+            <a href="history.html" class="btn btn_clMain02_outline btn_order_history">注文履歴</a>
+            <button type="button" class="menu_btn btn_notification collapsed" data-bs-toggle="collapse" data-bs-target="#notificationList" aria-controls="notificationList" aria-expanded="false" id="globalHeader_info_btn">
+              <i class="fal fa-bell icon"></i>お知らせ
+              <!-- 【sys】通知がある時にはバッジを表示。クリックして通知を開いたらバッジは消える。 -->
+              <span class="notification_badge">9+</span>
+            </button>
+            <!-- 【sys】直近3ヶ月以内の通知を表示 -->
+            <!--#notificationList-->
+            <div class="collapse multi-collapse header_menu" id="notificationList">
+              <ul class="navbar-nav">
+                <!-- 【sys】is_unreadクラス付与で未読の通知に背景色を付ける。 -->
+                <li class="is_unread">
+                  <a href="products-id.html#productComment">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」に生産者がコメントしました。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】購入者表示：生産者がキャンセルする -->
+                <li>
+                  <a href="management_08.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の注文がキャンセルされました。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】購入者表示：生産者が着金確認ボタンを押す -->
+                <li>
+                  <a href="management_03.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の支払いが確認されました。商品発送までしばらくお待ちください。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】購入者表示：生産者が発送通知ボタンを押す -->
+                <li>
+                  <a href="management_04.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」が発送されました。商品を受け取ったら、「受取通知」をしてください。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】購入者表示：購入者が受け取り通知をせずに14日経過した -->
+                <li>
+                  <a href="management_04.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の発送から2週間が経ちました。商品を受け取ったら、「受取通知」をしてください。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】購入者表示：お気に入り登録している商品の在庫が0から1以上になる -->
+                <li>
+                  <a href="products-id.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の販売が再開されました。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】購入者表示：購入者が受け取り通知をせずに30日経過した -->
+                <li>
+                  <a href="management_05.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の発送から30日経ったので受け取りが自動で完了しました。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】購入者表示：購入者が受け取り通知をして3日後 -->
+                <li>
+                  <a href="management_05.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」に対して、いいねやレビューを送ることができます。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】is_unreadクラス付与で未読の通知に背景色を付ける。 -->
+                <!-- 【sys】is_farmerクラス付与で生産者向け通知 -->
+                <!-- 【sys】生産者表示：購入者が注文完了する -->
+                <li class="is_unread is_farmer">
+                  <a href="management_farmer_01.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の注文がありました。支払い完了までお待ちください。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】生産者表示：購入者が支払完了する -->
+                <li class="is_farmer">
+                  <a href="management_farmer_02.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の支払い（支払い方法）が完了しました。着金を確認の上、商品を発送してください。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】生産者表示：購入者が受取完了する -->
+                <li class="is_farmer">
+                  <a href="management_farmer_05.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の受け取り通知が届きました。これで取引は完了です。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】生産者表示：購入者がいいねする -->
+                <li class="is_farmer">
+                  <a href="management_farmer_06.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」にいいね！が届きました。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】生産者表示：購入者がいいねとレビューする -->
+                <li class="is_farmer">
+                  <a href="management_farmer_06.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」にレビューといいね！が届きました。レビューにコメントを返しましょう。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】生産者表示：購入者（購入希望者）がコメントする -->
+                <li class="is_farmer">
+                  <a href="products-id.html#productComment">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」にコメントがありました。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】生産者表示：購入者がキャンセルする -->
+                <li class="is_farmer">
+                  <a href="management_farmer_08.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の注文がキャンセルされました。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】生産者表示：購入者が受け取り通知をせずに30日経過した -->
+                <li class="is_farmer">
+                  <a href="management_farmer_05.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」の発送から30日経ったので受け取りが完了しました。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- （出品中）機能制限系の通知↓↓ -->
+                <!-- 【sys】生産者表示：生産者が機能制限（決済失敗）された -->
+                <!-- 【sys】生産者表示：生産者が機能制限（解約）された -->
+                <!-- 【sys】生産者表示：生産者が機能制限（発言禁止）された -->
+                <!-- 【sys】生産者表示：生産者が機能制限（アカウントBAN）された -->
+                <li class="is_farmer">
+                  <a href="sell_05.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <!-- 【sys】商品名（最大50文字）20文字以上は三点リーダー（JS実装済） -->
+                    <p>機能が制限されていたため、「<span class="productName">最大50文字です。【訳あり】シャインマスカット500g商品名が入ります商品名が入ります商品名が入りま</span>」を自動で出品停止しています。必要に応じて出品を再開してください。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- （注文商品がある場合）機能制限系の通知↓↓ -->
+                <!-- 【sys】生産者表示：生産者が機能制限（解約）された -->
+                <!-- 【sys】生産者表示：生産者が機能制限（アカウントBAN）された -->
+                <li class="is_farmer">
+                  <a href="management_farmer_09.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <p>機能が制限されていたため、システムにより自動キャンセルしました。</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+                <!-- 【sys】購入者表示：生産者が機能制限（解約）された -->
+                <!-- 【sys】購入者表示：生産者が機能制限（アカウントBAN）された -->
+                <li>
+                  <a href="management_09.html">
+                    <div class="notificationImg">
+                      <img src="assets/images/product_sample1.webp" alt="{商品名}" />
+                    </div>
+                    <!-- 【sys】通知が届いた時間を表示 -->
+                    <!-- 【sys】yyyy/mm/dd hh:mm 24時間表記 -->
+                    <time>2022/10/3 21:20</time>
+                    <p>生産者が取引を継続できない状態になったため、システムにより自動キャンセルしました</p>
+                  </a>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </li>
+              </ul>
+              <!-- 【sys】通知がない場合の表示 -->
+              <p class="no_message">通知はありません</p>
+              <button class="btn btn-sm bg_navy btn_close" data-bs-toggle="collapse" data-bs-target="#notificationList" aria-controls="notificationList" aria-expanded="false"><i class="fa-regular fa-xmark"></i>閉じる</button>
+            </div>
+            <!--/#notificationList-->
+            <!-- マイページモーダル-->
+            <button class="menu_btn btn_mypage collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mypageMenu" aria-controls="mypageMenu" aria-expanded="false"><img src="assets/images/sample_user2.webp" alt="{ユーザー名}" class="rounded-circle" />メニュー</button>
+            <div class="collapse multi-collapse header_menu" id="mypageMenu">
+              <div class="navbar-nav">
+                <dl class="serviceMenu">
+                  <dt class="caption">購入者メニュー</dt>
+                  <dd class="nav-item">
+                    <a href="index.html" class="nav-link"> <img src="assets/images/ico_home.svg" alt="" />トップページ </a>
+                  </dd>
+                  <dd class="nav-item">
+                    <a href="order_01.html" class="nav-link"> <img src="assets/images/ico_history_97.svg" alt="" />注文履歴 </a>
+                  </dd>
+                  <dd class="nav-item">
+                    <a href="bookmarks.html" class="nav-link"> <img src="assets/images/ico_heart_ccc.svg" alt="" />お気に入り </a>
+                  </dd>
+                  <dd class="nav-item">
+                    <a href="mypage_address.html" class="nav-link"> <img src="assets/images/ico_truck.svg" alt="" />お届け先住所登録 </a>
+                  </dd>
+                </dl>
+                <div class="btn_farmer">
+                  <a href="farmer.html"><img src="assets/images/ico_service.svg" alt="" />生産者の方はこちら</a>
+                </div>
+                <dl class="serviceMenu">
+                  <dt class="caption">ヘルプ</dt>
+                  <dd class="nav-item">
+                    <a href="guide.html" target="_blank" class="nav-link">使い方ガイド</a>
+                  </dd>
+                  <dd class="nav-item">
+                    <a href="https://tayori.com/faq/d3c2c6c7cc3a5e4588e506f60eaf70a0e6765156/category/d8e16d50fd9c19882efc1eae24c7bf42ab3750f5/" target="_blank" class="nav-link">よくある質問</a>
+                  </dd>
+                  <dd class="nav-item">
+                    <a href="https://forms.gle/rwnkY2ekXKNMWiZT9" target="_blank" class="nav-link">お問い合わせ</a>
+                  </dd>
+                </dl>
+              </div>
+              <button class="btn btn-sm btn_close" data-bs-toggle="collapse" data-bs-target="#mypageMenu" aria-controls="mypageMenu" aria-expanded="false"><i class="fa-regular fa-xmark"></i>閉じる</button>
+            </div>
+            <!-- /マイページモーダル-->
+            <!-- スマホ時のモーダル背景-->
+            <div class="modal mypage"></div>
+            <!-- /スマホ時のモーダル背景-->
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <ul class="breadcrumb_list">
+        <li class="breadcrumb_item"><a href="./">トップ</a></li>
+        <li class="breadcrumb_item">今いるページ</li>
+      </ul>
+      <div id="wrapper" class="rule">
+        <div class="rule_inner">
+          <h2 class="sec_title">リベシティファーマーズマーケット利用規約</h2>
+          <p class="rule_text">
+            リベラルアーツ大学（以下「本運営」といいます。）は、「リベシティファーマーズマーケット利用規約」（以下「本規約」といいます。）を定め、本規約に従い、「リベシティファーマーズマーケット」（以下「本サービス」といいます。）を提供します。また、本規約の他、本サービスの母体である「<a
+              href="https://libecity.com/"
+              target="
+          "
+              >リベラルアーツシティ</a
+            >」（以下「リベシティ」といいます。）の<a href="https://libecity.com/rule" target="_blank">利用規約</a>、本サービスのガイドライン、ヘルプ等の記載も、本規約の一部として適用されます。
+          </p>
+          <h3 class="rule_title">第1条 定義</h3>
+          <p class="rule_text">本規約において、用語の定義は、別途定義されている場合を除き、以下のとおりとします。</p>
+          <ol class="rule_olList">
+            <li>「申込者」とは、本サービスへの利用登録の申込みを行った者をいいます。</li>
+            <li>「利用者」とは、本サービス所定の手続きに従い利用登録を行った者をいいます。</li>
+            <li>「購入者」とは、利用者のうち、本サービスを通して商品を購入する者をいいます。</li>
+            <li>「生産者」とは、利用者のうち、本サービスを通して商品を提供する個人又は法人をいいます。本サービスにおいて生産者は「自然に働きかけて食べ物を得ている人、及び花きを育てている人」と定義され、その生産行為には農業、養殖、畜産などのほか、漁、狩猟、山菜等の収穫、加工食品の生産も含まれます。</li>
+            <li>「出品」とは、生産者が提供可能な商品に関する情報を、本サービスのウェブサイト上で公開することをいいます。</li>
+            <li>「本取引」とは、本サービスを利用して購入者と生産者との間で合意する商品売買に関する取引をさします。</li>
+            <li>「商品」とは、生産者自ら生産する商品をいいます。なお、本サービスでは、第三者が生産したものを販売できません。</li>
+            <li>「利用者情報」とは、利用者が本サービスの利用のために、リベシティの所定のページにて入力した一切の情報をさします。</li>
+            <li>「利用者投稿情報」とは、利用者が本サービスの利用のために、本サービスに投稿する文章等を含む一切の情報をいいます。なお、利用者投稿情報の著作権その他一切の法的権利については、利用者投稿情報を投稿した利用者又は当該利用者に利用を許諾した第三者に帰属します。</li>
+            <li>「本運営配信情報」とは、本運営が本サービスにおいて利用者に対し配信する文章、イラスト・写真などの画像及び動画等をいいます。なお、本運営配信情報の著作権については、本運営又は本運営に利用を許諾した第三者に帰属します。</li>
+            <li>「個人情報」とは、リベシティの「<a href="https://libecity.com/privacypolicy" target="_blank">プライバシーポリシー</a>」において定義された、個人識別情報をいいます。</li>
+          </ol>
+          <h3 class="rule_title">第2条 本サービスについて</h3>
+          <ol class="rule_olList">
+            <li>本サービスは、利用者同士において、自らが生産した商品のマッチングを行うことができる登録制のマッチングサービスで、本運営が運営するプラットフォーム及び関連コンテンツを提供します。</li>
+            <li>本サービスは、生産者と購入者のマッチングを行うための情報を掲載するプラットフォームを提供するサービスです。生産者及び購入者間の商品売買に関する手続は、本サービスを通じ、すべて生産者及び購入者の間で直接かつ各自の責任で行われ、本運営は自ら商品を提供するものではなく、また、商品売買に関する委託や仲介、媒介を行うものではありません。本運営は、生産者及び購入者間の契約及び取引の実行に関する行為には一切関与せず、当該生産者及び購入者間の取引に関して一切の責任を負いません。</li>
+          </ol>
+          <h3 class="rule_title">第3条 本サービスの利用について</h3>
+          <ol class="rule_olList">
+            <li>利用者が本サービスを利用して取引を行う場合、本取引の内容は、購入者と生産者との間で協議し、決定するものとします。本取引に際して、必要に応じ、自らの責任かつ費用で、購入者と生産者との間で売買契約等その他の契約を締結するものとし、本運営は、当該契約内容に関し、一切の関与をせず、責任を負いません。</li>
+            <li>生産者が本サービス上で販売できる商品は食品及び花きに限ります。いずれも、生産者が自ら生産したもの（加工食品を含む）のみ出品できるものとし、第三者が生産したものを出品できません。</li>
+            <li>本運営は、購入者や生産者の選定は一切行わず、その契約不適合や瑕疵に関して、いかなる責任も負いません。</li>
+            <li>購入者から生産者に対する費用の支払は、本取引における利用者の責任と費用で実行し、本運営は一切の関与をせず、責任を負いません。</li>
+            <li>生産者から購入者に対して商品の発送は、本取引における利用者の責任と費用で実行し、本運営は一切の関与をせず、責任を負いません。</li>
+            <li>本運営は本サービス上で行われる利用者間の取引を管理するものではなく、本取引によって生じた不利益・損害について一切責任を負いません。</li>
+            <li>本運営は、利用者の正確性、確実性、真実性を保証をするものではなく、また、購入者又は生産者が本サービス上で取引を完了することを保証するものでもありません。本件取引に係る責任は、購入者と生産者との間で協議し、決定し、本運営は何ら責任を負いません。</li>
+          </ol>
+          <h3 class="rule_title">第4条 利用資格</h3>
+          <ol class="rule_olList">
+            <li>
+              本サービスを利用するためには、所定の手続きを行い、利用登録をする必要があります。以下の要件をすべて満たすことによって利用資格が付与されます。
+              <ol class="rule_olList_inner">
+                <li>リベシティにて本サービスの利用登録を行うこと</li>
+                <li>リベシティ応援会員資格を有すること</li>
+                <li>本規約に同意し、承認すること</li>
+                <li>不当又は違法な目的で本サービスを利用せず、利用登録をしないこと</li>
+                <li>満18歳以上であること</li>
+                <li>利用者が未成年者の場合、利用に際して法定代理人の同意を得ること</li>
+                <li>過去5年以内に、暴力団等の反社会的勢力に所属せず、これらのものとの関係を有していないこと</li>
+              </ol>
+            </li>
+            <li>利用者は、利用者が登録した情報が正確であり、かつ、真実であることを保証し、その登録情報に関する責任を利用者自らが負います。</li>
+          </ol>
+          <h3 class="rule_title">第5条 利用登録</h3>
+          <ol class="rule_olList">
+            <li>本運営が定める方法により、申込者は本サービスの利用申込みを行うものとします。</li>
+            <li>本サービスの利用登録は、申込者が利用申込みをした時点で完了します。</li>
+            <li>申込者は、本運営が申込者からの利用申込みについて、承諾しない場合があることを予め同意します。この場合、本運営は申込者に対し、不承諾の一切の理由を説明する義務を負わないものとします。</li>
+          </ol>
+          <h3 class="rule_title">第6条 利用資格の失効</h3>
+          <ol class="rule_olList">
+            <li>
+              利用者において、以下の事由が生じた場合、利用資格は失効するものとします。この際、当該利用者は本サービスの全部又は一部が利用できなくなります。
+              <ol class="rule_olList_inner">
+                <li>利用者がリベシティ を自主解約した場合（解約の事由は問いません。）</li>
+                <li>利用者が本規約に定められている事項もしくはガイドライン等に記載する事項に違反した場合、又はそのおそれがあると本運営が判断した場合</li>
+                <li>リベシティ会員資格を喪失したこと（資格喪失の理由は問いません。）</li>
+                <li>利用者と本運営との間の信頼関係が失われた場合又は本運営が利用者による本サービスの利用を不適当であると判断した場合</li>
+              </ol>
+            </li>
+            <li>本運営が本サービスの全部又は一部の利用を制限し、又は本サービスの利用を停止若しくは利用資格の取消等の措置を行ったことにより、利用者が損害を被ったとしても、本運営は一切の責任を負わないものとします。</li>
+            <li>利用者が本サービスを通じて売買契約等が確定している商品については、利用資格が失効しても、自動でキャンセルできず、通常通り発送されるものとします。但し、双方が合意する場合、生産者から購入者に商品代金の返金を持ってキャンセルとすることができます。</li>
+          </ol>
+          <h3 class="rule_title">第7条 解約</h3>
+          <ol class="rule_olList">
+            <li>利用者は、リベシティの解約を行うことで、併せて本サービスも解約することができるものとします。</li>
+            <li>利用者がリべシティ又は本サービスを解約した場合においても、当該利用者による利用者投稿情報については、他の利用者において閲覧可能な状態となります。</li>
+          </ol>
+          <h3 class="rule_title">第8条 法令遵守</h3>
+          <p class="rule_text">利用者は、本サービスの利用及び本取引の締結・実行に際して、適用される法令を遵守することとします。</p>
+          <h3 class="rule_title">第9条 秘密情報の取り扱い</h3>
+          <ol class="rule_olList">
+            <li>利用者は、本サービス又はリベシティを通じて利用者間で連絡を取り合う場合、相手方から開示された利用者に関する一切の情報について、これを秘密情報として保持し、事前に当該相手方の書面による承諾を得ることなく、第三者への開示又は漏洩をしてはならないものとします。</li>
+            <li>利用者は、前項の秘密情報に関し、本サービスの利用及び本取引の目的以外で使用しないものとします。</li>
+            <li>
+              次の各号に定める情報は、秘密情報から除外します。
+              <ol class="rule_olList_inner">
+                <li>開示者から開示を受ける前に、被開示者が正当に保有していたことを証明できる情報</li>
+                <li>開示者から開示を受ける前に、公知となっていた情報</li>
+                <li>開示者から開示を受けた後に、被開示者の責に帰すべからざる事由により公知となった情報</li>
+                <li>被開示者が、正当な権限を有する第三者から秘密保持義務を負うことなく正当に入手した情報</li>
+                <li>被開示者が、開示された情報によらず独自に開発した情報</li>
+              </ol>
+            </li>
+            <li>利用者は、自らの責任と費用において、本取引を開始する前に、必要に応じ、別途、秘密保持契約等を締結することとします。</li>
+            <li>本運営は、利用者間における秘密保持について、何らこれを保証するものでありません。秘密情報の取扱いに関し、紛争が起きたとしても、本運営は一切責任を負わず、利用者の責任と費用で解決するものとします。</li>
+          </ol>
+          <h3 class="rule_title">第10条 本取引に関する注意事項</h3>
+          <ol class="rule_olList">
+            <li>購入者と生産者は、当事者間で別途合意する場合を除いて、本規約及び本条に従い、本取引を行わなければなりません。</li>
+            <li>生産者が商品購入に際し購入者の本人確認手続を実施することを選択した場合には、購入者は本人確認手続に協力しなければなりません。</li>
+            <li>購入者は、本サービスから所定の方法に従って注文、料金の支払いを行うものとし、料金の支払が当該商品についての売買契約の申込とみなします。</li>
+            <li>生産者が、着金を確認した時点で、当該商品について売買契約が成立したものとみなします。</li>
+            <li>購入者は、料金の支払後はキャンセルできません。料金の支払後は、当事者間で合意できた場合のみキャンセルできます。</li>
+            <li>生産者は、①商品に不備がある場合、②商品説明と実際の商品が異なる場合、③梱包の不備によって配送時に商品が破損したなどの場合、商品の返品に対応しなければなりません。この場合、購入者は、生産者が責任を負うことに同意し、返金、商品の引取、又は交換等の対応は、生産者が行うものとします。</li>
+            <li>購入者は、第3項の甲の申し込みをした場合であっても、配送状況、交通事情、天候、天災の発生その他の事由により商品の全部又は一部がお届け予定日までに届かないことがあることについて、予め承諾するものとします。また、上記の事由により商品をお届けできない可能性があることについても、承諾するものとします。</li>
+            <li>購入者は、生産者に対し、⽀払⽇までに商品代金を⽀払わないときは、当該期限の翌⽇から⽀払済みまで年 14.6％の遅延損害⾦を加算した金額をお⽀払いください。</li>
+            <li>商品によって、生産者が提供する地域を限定することがあります。</li>
+            <li>生産者が法人の場合、本取引を行う利用者は、当該法人の代表者又は代表者の承認を得た責任者であることを要する。</li>
+          </ol>
+          <h3 class="rule_title">第11条 生産者が遵守すべき義務</h3>
+          <ol class="rule_olList">
+            <li>
+              生産者は、次の事項をあらかじめ同意し、責任をもって対応します。
+              <ol class="rule_olList_inner">
+                <li>生産者は、登録情報や許可証情報に変更があった場合、特に注意して遅滞なく、本サービスの定める方法により正確に更新するものとします。また、生産者は、自らの出品した商品について、購入者の誤解を生じさせないように、真実、正確かつ適切に表示するとともに、最新の情報に保つこととします。</li>
+                <li>本運営は、生産者が前項の定めに基づく義務を適切に履行していないことが明らかになった場合、生産者に事前に通知又は催告することなく、出品の取り下げないし削除することができます。但し、本運営は取り下げ又は削除の義務を負うものではありません。本運営は、出品の取り下げ若しくは削除したこと、又は取り下げ若しくは削除しなかったことによって生じたいかなる損害についても、一切責任を負いません。</li>
+                <li>生産者は、商品の内容等、本サービスの利用に際して他の利用者に誤認又は誤解を与える表示をしないものとします。</li>
+                <li>生産者は、本運営が購入者から「許可証情報」の問い合わせを受けた場合に、生産者が登録した「許可証情報」を購入者に開示することに同意します。</li>
+                <li>生産者は、本サービスの利用にあたり、食品衛生法、食品表示法等の食品表示、薬機法、改正JAS法に関する法律、不当景品類及び不当表示防止法、特定商取引に関する法律、特定電子メールの送信の適正化に関する法律その他の法令を遵守していること、及び食品の衛生管理のほか食品を生産するために必要な手続きを適切に履践していることを保証するものとします。</li>
+                <li>生産者は、本サービスを利用して、法令その他の規制により許認可又は届出が必要となる商品の販売を行う場合、監督官庁から交付を受けた許認可証又は届出書の写しを本サービスに提出するものとし、かかる許認可又は届出が取り消し又は無効となった場合には、当該商品の販売を停止するものとします。</li>
+                <li>生産者は、特定商取引に関する法律第11条但書に基づく開示請求があった場合には、速やかに必要な開示を行うものとします。</li>
+                <li>生産者は、料金を支払い、売買契約の申し込みが完了するまでは、購入者が売買契約をキャンセルできることをあらかじめ同意します。</li>
+                <li>生産者は、①商品に瑕疵がある場合、②商品説明と実際の商品が異なる場合、③梱包の不備により配送時に商品が破損したなどの場合、生産者が責任を負うことを同意し、返金、商品の引取、又は交換時の対応を、生産者の費用と責任において、直接、購入者に対して行うものとします。</li>
+                <li>生産者は、自ら出品した商品を期日までに購入者に届けるように最善の注意を尽くすものとします。ただし、急な気候の変化や自然災害等により予定通りに発送できない場合は、購入者に理解を得るよう善処するものとします。</li>
+                <li>生産者は、所定の手続を経ることで、商品の出品を停止することができます。ただし、購入者が出品停止前に注文した分に関しては、生産者が手配する義務を負います。</li>
+                <li>生産者は、個人情報の保護に関する法律、割賦販売法、資金決済に関する法律、特定商取引に関する法律、消費者契約法、犯罪による収益の移転防止に関する法律等の関連諸法令及びガイドライン等を遵守するものとします。</li>
+                <li>生産者は、生産者が提供する商品等に起因する会員又は第三者からの抗弁の申し立て、苦情等に対して適切な処理を行う体制を整え、自己の責任と費用で対応し、解決にあたるものとします。</li>
+              </ol>
+            </li>
+            <li>
+              生産者は、本サービスの利用にあたり、以下の各号のいずれかに該当する行為をしてはなりません。
+              <ol class="rule_olList_inner">
+                <li>実際に売却する意思又は予定のない商品を出品する行為</li>
+                <li>手元にない商品又は将来的に自ら生産する予定のない商品を第三者からの予約し、又は取り寄せて販売する行為</li>
+                <li>本運営又は購入者に対し必要な連絡を適切かつ迅速に行わない行為</li>
+                <li>明らかに正常ではない商品を販売する行為</li>
+                <li>配送時に商品の破損や変質などを招くような不適切な梱包で商品を配送する行為</li>
+                <li>商品の提供を遅滞し、又は売買契約のキャンセルを繰り返す行為</li>
+                <li>商品の販売等本サービスの利用に関連して適切な説明を行わない行為</li>
+                <li>第三者に対し、無断で、広告・宣伝・勧誘等の内容又は嫌悪感を抱くもしくは抱くおそれのある内容を発信する行為</li>
+                <li>本運営もしくは購入者、他生産者に対する迷惑行為及びそのおそれがあると本運営が合理的に判断した場合</li>
+                <li>悪質な客引きと判断される行為</li>
+                <li>本サービスを本来の趣旨とは異なる目的で利用する行為</li>
+              </ol>
+            </li>
+            <li>
+              生産者が以下の各号のいずれかの事由に該当する場合は、本運営は、事前に通知又は催告することなく、当該生産者による本サービスの利用を一時的に停止、又は生産者としての登録を取り消すことができます。この場合、いかなる理由があっても、本運営者は生産者に責任を負いません。なお、かかる登録の取り消し等の処分は、当該生産者に対する損害賠償請求を防げるものではありません。
+              <ol class="rule_olList_inner">
+                <li>本規約の条項に違反した場合</li>
+                <li>登録情報に虚偽の事実があることが判明した場合及び虚偽の事実があると本運営が判断した場合</li>
+                <li>生産者、他の生産者、購入者、本運営その他の第三者に損害を生じさせる恐れのある目的又は方法で本サービスを利用した、又は利用しようとした場合。</li>
+                <li>手段の如何を問わず、本サービスの運営を妨害した場合又は妨害するおそれがある場合</li>
+                <li>酒類など販売免許等の免許、許可、認可、承認、同意、登録、届出、報告その他これらに類する行為又は手続きが必要となる商品について、免許等を取得せずに取引を行った場合</li>
+                <li>その他、本運営が生産者としての登録の継続を適当でないと合理的な理由に基づき判断した場合</li>
+              </ol>
+            </li>
+            <li>
+              生産者は、本サービスの利用に関連して個人情報を取り扱う場合、以下の事項を遵守するものとし、責任をもって対応します。
+              <ol class="rule_olList_inner">
+                <li>生産者は、本サービスの利用に関連して生産者が取得した情報を、本サービスの利用に必要な範囲のみで、購入者のプライバシー及び本サービスの利益に配慮して、個人情報保護法その他の法令に従って利用しなければならいものとします。</li>
+                <li>生産者は、個人情報を、本サービスの利用に必要な範囲を超えて、複写及び複製してはなりません。</li>
+                <li>生産者は個人情報を、厳格に管理し、安全管理措置を講じるものとします。</li>
+                <li>生産者は、第三者に購入者の情報を有償又は無償を問わず漏洩・開示・提供・その他取り扱わせてはなりません。</li>
+                <li>生産者は、取引によって知り得た購入者の情報は取引の完了までに限って使用できるものとし、取引終了後においては利用してはならないものとします。</li>
+                <li>本号の規定は利用資格失効後も有効に存続します。</li>
+              </ol>
+            </li>
+          </ol>
+          <h3 class="rule_title">第12条 禁止事項等</h3>
+          <ol class="rule_olList">
+            <li>
+              本運営は、利用者による本サービスの利用に際して、本規約に別途定める事項及びガイドライン等に記載する事項の他、以下の行為を禁止します。なお、以下の各号に定める禁止事項は、利用者投稿情報にもすべて適用されるものとします。
+              <ol class="rule_olList_inner">
+                <li>援助交際・売春・買春等を勧誘・誘発・助長する行為、又は隠語全般含め曖昧な表現をして、それらを勧誘・誘発・助長するような行為又はそれに準ずる行為</li>
+                <li>児童ポルノの頒布又は児童虐待を誘引するおそれのある行為又はそれに準ずる行為</li>
+                <li>出会いや交際等を目的とする行為又はそれに準ずる行為</li>
+                <li>他の利用者、本運営又は第三者の著作権、商標権、特許権、実用新案権、プライバシー権、肖像権、パブリシティ権その他の権利を侵害する行為、又は侵害するおそれのある行為</li>
+                <li>他の利用者、本運営又は第三者を根拠なく非難又は誹謗中傷し、名誉もしくは信用を傷つける行為又はそれに準ずる行為</li>
+                <li>自殺・集団自殺・自傷・違法薬物使用又は脱法薬物使用等を勧誘、誘発、助長するような行為又はそれに準ずる行為</li>
+                <li>差別に繋がる、民族・宗教・人種・性別・年齢等に関する表現の行為又はそれに準ずる行為</li>
+                <li>利用者資格の売買、その他類似する行為又はそれに準ずる行為</li>
+                <li>本運営の許諾を得ずに自己又は第三者の商品やサービスの広告・宣伝・誘導を目的とする行為、又はその他スパムメール・チェーンメール等の勧誘を目的とする行為又はそれらに準ずる行為</li>
+                <li>本サービスを利用して不特定多数に対して商品を掲載したにもかかわらず、本サービスの機能を通さずに販売を行う行為。</li>
+                <li>他の利用者、本運営又は第三者に不利益又は損害を与える行為</li>
+                <li>公序良俗、その他法令に違反する行為又は犯罪に結びつく行為及び当該行為を勧誘・幇助・強制・助長する行為又はそれに準ずる行為</li>
+                <li>本運営の事前の承諾なく、本サービスにより得た情報を転載又は引用及び他メディアへの掲載等をする行為又はそれに準ずる行為</li>
+                <li>反社会的勢力に利益を提供し、又は便宜を供与する行為</li>
+                <li>他の利用者の情報収集目的、宗教や政治活動への勧誘目的で本サービスを利用する行為又はそれに準ずる行為</li>
+                <li>事実に反する情報を他の利用者に流布する行為又はそれに準ずる行為</li>
+                <li>他の利用者による本サービスの利用を妨害する行為</li>
+                <li>他の利用者又は第三者になりすまして、本サービスを利用する行為</li>
+                <li>利用者本人の依頼ではなく、第三者による依頼に対して商品売買を仲介する行為</li>
+                <li>本運営配信情報の著作権、商標権等の知的財産権その他の権利を侵害し、又は侵害するおそれのある行為（本運営配信情報を複製、改変、公衆送信、送信可能化、アップロード、レンタル、上映又は放送する行為がこれに該当しますが、これに限られるものではありません。）</li>
+                <li>本運営配信情報に施された技術的保護手段を回避する行為</li>
+                <li>本サービスを通じて取得した個人情報を本人の同意なく第三者に提供する行為</li>
+                <li>本サービスにより提供される情報を改ざん・消去する行為</li>
+                <li>本運営のサーバーに過度の負担を及ぼす行為</li>
+                <li>本サービス又は本サービス上で使用されているソフトウエアをリバース・エンジニアリング、逆コンパイル、又は逆アセンブルする行為</li>
+                <li>コンピューターウィルス等有害なプログラムを使用し、もしくは提供する行為、又はこれらの行為を推奨する行為</li>
+                <li>本サービスに接続されている他のコンピューター・システム又はネットワークへの不正アクセスを試みる行為</li>
+                <li>マルチ・ねずみ講・MLMなどの連鎖取引への勧誘が疑われる行為</li>
+                <li>報酬に、金銭またはそれに準ずるものを設定せずに、商品掲載を行う、又は商品購入を行う行為</li>
+                <li>商品購入際して、商品料金以外の商品・サービス等の購入を求める行為、又は役務提供を求める行為</li>
+                <li>類似する商品を複数回掲載し、利用者を混同させる行為</li>
+                <li>長時間の架電、同様の問い合わせの過度な繰り返し、義務や理由のないことの強要、その他本運営の業務に著しく支障を来たす行為、又はそのおそれのある行為</li>
+                <li>公序良俗に違反する行為（暴力を助長し、誘発するおそれのある情報又は残虐な映像を送信又は表示する行為や心中の仲間を募る行為等を含みます。）</li>
+                <li>他の利用者又は第三者が主導する情報の交換又は共有を妨害する行為、本サービスの運営を妨害する行為、その他本運営に不利益又は迷惑を与えるおそれのある行為</li>
+                <li>法令又は本利用規約に抵触する行為</li>
+                <li>本サービスの他、本運営の運営するサービスを妨害する行為</li>
+                <li>前各号に定める行為を助長する、又は疑われる行為</li>
+                <li>本サービスを通じて知り得た他の利用者の個人情報を本人の事前の許可なく、第三者に開示又は漏洩する行為</li>
+                <li>利用者の個人情報を開示し、又は、合理的な理由なくその開示を要求する行為</li>
+                <li>レビューシステムの透明性・適切性を害する行為</li>
+                <li>リベシティ等を通じて行うメッセージまたは電話による連絡手段等において、他の登録ユーザーに対する交渉等の手段として犯罪名等刑事事件を想起させる用語を使用する行為</li>
+                <li>リベシティ等を通じて行うメッセージまたは電話による連絡手段等において、他の登録ユーザーに対し、社会通念上、不適切と考えられる交渉手段を用いる行為。</li>
+                <li>利用者の所属する組織体の規則・ガイドライン、利用者が負担する契約上の義務（守秘義務、競業避止義務等を含みます。）に違反する行為。</li>
+                <li>その他､本運営が不適切と判断した行為</li>
+              </ol>
+            </li>
+            <li>前項各号の禁止事項に該当するか否かについては、本運営の裁量により判断することができるものとします。</li>
+            <li>禁止事項に該当するか否かについて、調査する必要が生じた場合、利用者は、本運営の指示に従い、必要な調査に協力する必要があります。</li>
+          </ol>
+          <h3 class="rule_title">第13条 規約違反行為等に対する措置</h3>
+          <p class="rule_text">本運営は、本サービスを適正に運営するため、利用者が以下に定める事項に該当する場合には、あらかじめ利用者に通知することなく、利用者の掲載情報又は投稿情報の削除、本サービスの利用停止、利用資格の失効等必要な措置を講じることができるものとします。</p>
+          <ol class="rule_olList">
+            <li>利用者が本規約に定められている事項もしくはガイドライン等に記載する事項に違反した場合、又はそのおそれがあると本運営が判断した場合</li>
+            <li>利用者と本運営との間の信頼関係が失われた場合又は本運営が利用者による本サービスの利用を不適当であると判断した場合</li>
+          </ol>
+          <p class="rule_text">本運営は、かかる停止、削除等の措置を講じたことにより利用者に生じた損害から、一切免責されるものとします。</p>
+          <h3 class="rule_title">第14条 利用者のデータ及び利用者投稿情報等の取扱い</h3>
+          <ol class="rule_olList">
+            <li>本運営は、本サービスの保守や改良等の必要が生じた場合には、利用者投稿情報につき、サービスの保守や改良等に必要な範囲で複製又は変更を行えるものとします。</li>
+            <li>本運営は、本サービスの広告及び本サービスにより派生する商品化（書籍化等の二次利用を含むがこれに限りません。）の目的のために、利用者投稿情報を無償で利用（複製・複写・改変・第三者へのサブライセンスその他あらゆる利用を含みます。）できるものとし、利用者は、これを本運営に対して、永続的かつ取消不能のものとして許諾するものとします。ただし、利用者投稿情報のうち個人を特定することのできる情報や利用者が限定公開の意図をもって投稿した情報を利用する場合、本運営は、当該情報を投稿した利用者の事前の承諾を得るものとします。</li>
+            <li>利用者は、前項による利用者投稿情報の利用について、本運営に対し著作者人格権を行使せず、放棄することとします。</li>
+          </ol>
+          <h3 class="rule_title">第15条 利用者投稿情報の監視</h3>
+          <p class="rule_text">本運営は、利用者に本サービスを快適にご利用いただくため、本運営自ら又は第三者に委託し、担当者の目視又は自動監視システムにより、利用者投稿情報を監視するように努めます。ただし、本運営は監視義務を負うものではありません。</p>
+          <h3 class="rule_title">第16条 本サービスの停止、変更、終了</h3>
+          <ol class="rule_olList">
+            <li>
+              本運営は、以下のいずれかに該当する場合、本サービスの全部又は一部の提供をいつでも停止することができるものとします。
+              <ol class="rule_olList_inner">
+                <li>本サービスに係るシステムの点検又は保守作業等を行う場合</li>
+                <li>地震、落雷、火災、風水害、停電等の天災事変その他非常事態の発生した場合</li>
+                <li>システム、通信回線等が停止した場合</li>
+                <li>その他、本運営が本サービスを停止することが必要であると判断した場合</li>
+              </ol>
+            </li>
+            <li>本運営は、本運営の都合により、本サービスの内容を変更し、又は本サービスの提供を終了することができるものとします。なお、本運営が本サービスを停止、変更又は終了（以下「停止等」といいます。）する場合、利用者に対して可能な限り事前に通知するよう努めますが、緊急な場合等、事前に通知ができないこともありますので予めご了承ください。</li>
+            <li>本運営は、いかなる理由を問わず、本サービスの停止等によって利用者が被った損害を賠償する責任を負わないものとします。</li>
+          </ol>
+          <h3 class="rule_title">第17条 本運営提供サービスに関連する知的財産権</h3>
+          <ol class="rule_olList">
+            <li>本サービスで本運営が作成・提供する画像、テキスト、プログラム等に関する著作権等の一切の知的財産権は、本運営に帰属します。</li>
+            <li>本サービスで本運営が作成・提供・掲載する一切の画像、テキスト、プログラム等は、著作権法、商標法等の法律により保護されています。</li>
+          </ol>
+          <h3 class="rule_title">第18条 免責事項</h3>
+          <ol class="rule_olList">
+            <li>
+              本運営は、以下に掲げる事項について、一切保証しないものとします。利用者は、本サービスの利用及び本サービスにより提供される情報の有用性等を自己の判断、かつ責任で利用するものとします。
+              <ol class="rule_olList_inner">
+                <li>利用者投稿情報及び本運営配信情報の内容を含む、本サービスで提供されるすべての情報（本サービスから提供される情報及び本サービス上に表示される第三者が管理又は運営するリンク先に含まれる一切の情報等を含みます。以下、本項において同様とします。）に関する、有用性、適合性、完全性、正確性、信頼性、安全性、合法性、道徳性、最新性</li>
+                <li>利用者間のやりとりに関する一切の事項</li>
+                <li>本サービスの提供に不具合、エラーや障害が生じないこと</li>
+                <li>本サービスの存続又は同一性が維持されること</li>
+                <li>本サービス上における利用者投稿情報及び本運営配信情報が第三者の権利を侵害しないこと</li>
+              </ol>
+            </li>
+            <li>利用者は、他の利用者との間で紛争が生じた場合には、当事者間においてこれを解決するものとし、本運営に損害を与えないものとします。</li>
+            <li>利用者による本サービスの利用に伴い、本運営の債務不履行又は不法行為に基づき利用者に損害が発生した場合、本運営は利用者に対し、当該債務不履行又は不法行為が生じた月において、当該利用者に生じるリベシティ応援会費の額を上限として、損害賠償責任を負います。ただし、本運営に故意又は重過失がない場合はこの限りではありません。</li>
+            <li>本サービスのシステム不具合や障害・中断やデータの消失・漏洩等により生じた不利益等本サービスの利用により利用者に生じた一切の損害について本運営は、いかなる理由を問わず、責任を負いません。</li>
+            <li>利用者が、本サービスを利用することにより、他の利用者又は第三者に対し不利益や損害を与えた場合、利用者は自己の費用と責任においてこれを賠償するものとします。利用者又は第三者が被る不利益・損害について本運営は一切責任を負いません。</li>
+            <li>本サービス上でやりとりされるメッセージや送受信されるファイルに個人情報等が含まれていた場合、それによって利用者が被った不利益・損害について、本運営は一切責任を負いません。</li>
+            <li>本運営は、本サービス上で利用者が作成・登録・提供・掲載・投稿した一切の画像、テキスト、プログラム等について、本サイトの円滑な運営又は本サービスの継続的な提供のために必要な範囲内で、本運営の判断により、使用・公開等を行うことができるものとし、これらによる一切の不利益・損害について本運営は一切責任を負いません。</li>
+            <li>生産者は、自らが商品を出品するために必要な資格、免許、許認可等の有無及び法令その他の規制、ガイドラインの有無を自らの責任取費用において調査し、法令に適合していることを表明し、保証します。生産者がかかる資格、免許、許可等を取得しなかったことにより生産者に発生した損害及び生産者が法令その他の規制に違反することによって発生する購入者との損害について、本運営は一切責任を負いません。この違反によって、購入者と生産者との間でトラブル、紛争が生じたときは、利用者間で協議し、解決します。</li>
+            <li>本運営は、商品の販売購入に伴うすべてのトラブル、事件及び事故について、⼀切の責任を負いません。</li>
+          </ol>
+          <h3 class="rule_title">第19条 損害賠償</h3>
+          <p class="rule_text">利用者の行為（利用者の行為が原因で生じたクレームや紛争等を含みます。）に起因して本運営に直接又は間接的に損害が発生した場合、本運営は利用者に対し、当該損害の全額（本運営が支払った弁護士費用を含みます。）を賠償請求できるものとします。</p>
+          <h3 class="rule_title">第20条 個人情報の取扱い</h3>
+          <ol class="rule_olList">
+            <li>本運営は、申込者及び利用者が本サービスを利用する際に本運営に対して提供する個人情報を、本運営の「<a href="https://libecity.com/privacypolicy" target="_blank">プライバシーポリシー</a>」の規定に則り、取扱うものとします。</li>
+            <li>本運営は、個人情報を、本サービスの提供を行う目的で利用することができるものとします。</li>
+            <li>申込者及び利用者は、本運営が個人情報のうち前項に定める目的に必要な範囲の情報を、第三者に対し提供することに同意するものとします。</li>
+            <li>申込者及び利用者が本運営を介することなく、他の利用者に対し、直接自己の個人情報を提供する場合、本運営はそれによって生じた紛争等には一切関知しないものとし、申込者及び利用者に対し何等の責任を負わないものとします。</li>
+          </ol>
+          <h3 class="rule_title">第21条 本運営からの通知</h3>
+          <ol class="rule_olList">
+            <li>本運営から申込者、利用者への連絡事項については、リベシティのチャット、利用者がリベシティの会員登録の際に登録したメールアドレス、利用者のSNS（ソーシャル・ネットワーキング・サービス）アカウント（利用者登録情報から本運営が知り得るもの）等を通じて連絡又は通知を行います。</li>
+            <li>申込者及び利用者は、前項のメールアドレスに変更がある場合、直ちにリベシティにて変更手続手続きをするものとします。</li>
+            <li>申込者及び利用者が前項に定める変更手続きを怠ったことにより、申込者及び利用者に損害が生じたとしても、本運営は一切何らの責任を負わないものとします。</li>
+          </ol>
+          <h3 class="rule_title">第22条 規約の変更</h3>
+          <ol class="rule_olList">
+            <li>
+              本運営は、次のいずれかに該当する場合、各利用者から個別の同意を得ることなく本運営の裁量で利用規約を変更することができるものとします。
+              <ol class="rule_olList_inner">
+                <li>利用規約の変更が、利用者の一般の利益に適合する場合</li>
+                <li>利用規約の変更が、契約をした目的に反せず、かつ、変更の必要性、変更後の内容の相当性、その他の変更にかかる事情に照らして合理的なものである場合</li>
+              </ol>
+            </li>
+            <li>利用規約の変更にあたり、本運営は、利用者に対して、変更後の利用規約の効力発生日及び変更内容について、事前に、サイトへの掲載又は電子メールの送信その他本運営が適切と判断する方法により周知します。</li>
+            <li>変更後の利用規約の効力発生日以降に利用者が本サイトを利用した場合、利用規約の変更に同意したものとみなします。</li>
+            <li>規約の変更により利用者に損害が生じた場合でも、本運営は責任を負いません。</li>
+          </ol>
+          <h3 class="rule_title">第23条 反社会的勢力の排除</h3>
+          <ol class="rule_olList">
+            <li>本運営及び利用者は、相手方に対し、当該利用者による本サービスの利用開始時点において、自己及び自己の取締役、執行役、執行役員等の経営に実質的に関与する重要な使用人、実質的に経営権を有する者が反社会的勢力に該当しないことを表明し、かつ当該利用者による本サービスの利用期間中該当しないことを保証するものとします。</li>
+            <li>
+              本運営及び利用者は、本サービスの利用に関連して自ら又は第三者を利用して以下の各号に該当する行為を行わないことを、相手方に対し、保証するものとします。
+              <ol class="rule_olList_inner">
+                <li>暴力的な要求行為</li>
+                <li>法的な責任を超えた不当な要求行為</li>
+                <li>脅迫的な言動をし、又は暴力を用いる行為</li>
+                <li>風説を流布し、偽計又は威力を用いて他方当事者の信用を棄損し、又は他方当事者の業務を妨害する行為</li>
+                <li>その他前各号に準ずる行為</li>
+              </ol>
+            </li>
+          </ol>
+          <h3 class="rule_title">第24条 権利義務の譲渡禁止</h3>
+          <p class="rule_text">利用者は、本規約に基づくすべての契約について、その契約上の地位及びこれにより生じる権利義務の全部又は一部を、本運営の事前の承諾なく第三者に対し譲渡、移転、担保設定その他の処分をすることはできないものとし、同意します。</p>
+          <h3 class="rule_title">第25条 分離可能性</h3>
+          <p class="rule_text">本規約のいずれかの規定が利用者との本規約に基づく契約に適用される関連法令に反するとされる場合、当該規定は、その限りにおいて、当該利用者との契約には適用されないものとします。ただし、この場合でも、本規約の他の規定の効力には影響しないものとします。</p>
+          <h3 class="rule_title">第26条 準拠法、裁判所</h3>
+          <ol class="rule_olList">
+            <li>本規約は、日本法に準拠して解釈されるものとします。</li>
+            <li>本運営、申込者及び利用者は、本規約に関し、本運営と申込者及び利用者との間で生じた紛争の解決について、大阪地方裁判所を第一審の専属的合意管轄裁判所とすることをあらかじめ合意するものとします。</li>
+          </ol>
+          <p class="rule_text text-end mb-5">【2023年3月1日 制定】</p>
+        </div>
+      </div>
+      <!-- /wrapper -->
+    </main>
+    <!-- ページトップボタン -->
+    <a href="#" id="pagetop" class="evasionBtn"><i class="fas fa-chevron-up" aria-hidden="true"></i></a>
+    <footer id="globalFooter" class="footer">
+      <div class="footer_container">
+        <div class="btn_group">
+          <a href="https://libecity.com" target="_blank" class="btn btn_gradient"><img src="assets/images/ico_libecity.svg" />リベシティに戻る</a>
+        </div>
+        <nav class="footer_nav">
+          <a href="https://libecity.com/">ログアウト</a>
+          <a href="rule.html">利用規約</a>
+          <a href="https://libecity.com/privacypolicy">プライバシーポリシー</a>
+        </nav>
+      </div>
+      <small class="copyright">&copy; リベシティ</small>
+    </footer>
+    <!-- 【sys】ページ離脱アラートモーダル -->
+    <div class="modal fade" id="pageAlertModal" tabindex="-1" role="dialog" aria-labelledby="pageAlertModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title fw-bold" id="pageAlertModalLabel">画面を移動しますか？</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-start">フォームの入力途中で画面を移動すると、入力内容が消えてしまうことがあります。</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+            <a href="#" class="btn btn-primary evasionBtn" id="targetLink">OK</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 電話番号未登録のユーザー向け：電話番号登録モーダル -->
+    <div class="modal fade" id="telsettingModal" tabindex="-1" role="dialog" aria-labelledby="telsettingModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="telsettingModalTitle"><i class="fas fa-info-circle me-1 text-primary" aria-hidden="true"></i>電話番号の登録をお願いします</h2>
+            <button type="button" class="btn-close evasionBtn" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>「リベシティ◎◎」で商品の出品・購入をする場合は、マイページの<a class="text-primary fw-bold" href="https://liberalartsuniversity.github.io/front-mock/ver2/mypage_tel_setting.html">電話番号設定</a>から、認証に使用する電話番号を登録してください。<br /><span class="text-danger fw-bold">電話番号未登録の場合はご利用いただけません</span>ので、ご注意ください。</p>
+            <p class="mt-3">※電話番号認証の登録が反映されない場合、<a class="text-primary fw-bold" href="#">こちら</a>をクリックして更新してください</p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">今は登録しない</button>
+            <a type="button" class="btn btn-primary" href="https://liberalartsuniversity.github.io/front-mock/ver2/mypage_tel_setting.html">電話番号を登録</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /電話番号未登録のユーザー向け：電話番号登録モーダル -->
+    <!-- 新入生会員向け：応援会員登録モーダル -->
+    <div class="modal fade" id="statusFreeModal" tabindex="-1" aria-labelledby="statusFreeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold">応援会員登録が必要です</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>「リベシティ◎◎」で商品の出品・購入をする場合は、応援会員登録が必要です</p>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <a href="https://libecity.com/mypage/member_change" target="_blank" class="btn btn-primary">応援会員登録</a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /新入生会員向け：応援会員登録モーダル -->
+  </body>
+</html>

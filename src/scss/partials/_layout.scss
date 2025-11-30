@@ -1,0 +1,26 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+レイアウト
+============================*/
+
+main {
+  margin-top: $scrollPaddingTopPc;
+
+  @include sp {
+    margin-top: $scrollPaddingTopSp;
+  }
+}
+
+#wrapper {
+  width: 100%;
+  max-width: $pcWidth;
+  margin: 0 auto;
+
+  @include mq(769px, 1199px) {
+    width: 98%;
+  }
+  @include sp {
+    padding: 0 10px;
+  }
+}

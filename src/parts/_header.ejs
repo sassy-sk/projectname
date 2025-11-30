@@ -1,0 +1,100 @@
+<header class="header">
+  <div class="header_container">
+    <nav class="header_navbar">
+      <h1 class="logo">
+        <a class="d-md-inline" href="index.html"><img src="assets/images/logo.svg" alt="リベシティファーマーズマーケット"></a>
+      </h1>
+
+      <!-- 【sys】PC・ヘッダー検索エリア -->
+      <div class="header_search pc_only">
+        <form action="search-index.html" class="header_searchForm">
+          <input type="search" name="search" placeholder="検索キーワード（商品/生産者名など）を入力">
+          <span class="bg">
+            <button type="submit" class="submitBtn"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+          </span>
+        </form>
+      </div>
+
+      <!-- ヘッダー内ナビゲーション -->
+      <div class="header_nav">
+        <!-- 【sys】電話番号未登録ユーザーの場合。クリックすると電話番号登録のお知らせモーダルを表示 -->
+        <!-- <button type="button" data-bs-toggle="modal" data-bs-target="#telsettingModal" class="btn btn_clMain02"><img src="assets/images/ico_service.svg" alt="">出品する</button> -->
+        <!-- /電話番号未登録ユーザー -->
+
+        <!-- 【sys】新入生の場合。クリックすると会員登録のお知らせモーダルを表示 -->
+        <button type="button" data-bs-toggle="modal" data-bs-target="#statusFreeModal" class="btn btn_clMain02 btn_service_order">出品する</button>
+        <!-- /新入生 -->
+
+        <a href="#" class="btn btn_clGray_outline btn_favorite">お気に入り</a>
+
+        <a href="history.html" class="btn btn_clMain02_outline btn_order_history">注文履歴</a>
+
+        <button type="button" class="menu_btn btn_notification collapsed" data-bs-toggle="collapse" data-bs-target="#notificationList" aria-controls="notificationList" aria-expanded="false" id="globalHeader_info_btn">
+          <i class="fal fa-bell icon"></i>お知らせ
+          <!-- 【sys】通知がある時にはバッジを表示。クリックして通知を開いたらバッジは消える。 -->
+          <span class="notification_badge">9+</span>
+        </button>
+
+        <!-- 【sys】直近3ヶ月以内の通知を表示 -->
+        <!--#notificationList-->
+        <%- include('_notifications', {path : ''}) %>
+        <!--/#notificationList-->
+
+        <!-- マイページモーダル-->
+        <button class="menu_btn btn_mypage collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mypageMenu" aria-controls="mypageMenu" aria-expanded="false">
+          <img src="assets/images/sample_user2.png" alt="{ユーザー名}" class="rounded-circle">メニュー
+        </button>
+        <div class="collapse multi-collapse header_menu" id="mypageMenu">
+          <div class="navbar-nav">
+            <dl class="serviceMenu">
+              <dt class="caption">購入者メニュー</dt>
+              <dd class="nav-item">
+                <a href="index.html" class="nav-link">
+                  <img src="assets/images/ico_home.svg" alt="">トップページ
+                </a>
+              </dd>
+              <dd class="nav-item">
+                <a href="order_01.html" class="nav-link">
+                  <img src="assets/images/ico_history_97.svg" alt="">注文履歴
+                </a>
+              </dd>
+              <dd class="nav-item">
+                <a href="bookmarks.html" class="nav-link">
+                  <img src="assets/images/ico_heart_ccc.svg" alt="">お気に入り
+                </a>
+              </dd>
+              <dd class="nav-item">
+                <a href="mypage_address.html" class="nav-link">
+                  <img src="assets/images/ico_truck.svg" alt="">お届け先住所登録
+                </a>
+              </dd>
+            </dl>
+
+            <div class="btn_farmer">
+              <a href="farmer.html"><img src="assets/images/ico_service.svg" alt="">生産者の方はこちら</a>
+            </div>
+
+            <dl class="serviceMenu">
+              <dt class="caption">ヘルプ</dt>
+              <dd class="nav-item">
+                <a href="guide.html" target="_blank" class="nav-link">使い方ガイド</a>
+              </dd>
+              <dd class="nav-item">
+                <a href="https://tayori.com/faq/d3c2c6c7cc3a5e4588e506f60eaf70a0e6765156/category/d8e16d50fd9c19882efc1eae24c7bf42ab3750f5/" target="_blank" class="nav-link">よくある質問</a>
+              </dd>
+              <dd class="nav-item">
+                <a href="https://forms.gle/rwnkY2ekXKNMWiZT9" target="_blank" class="nav-link">お問い合わせ</a>
+              </dd>
+            </dl>
+          </div>
+          <button class="btn btn-sm btn_close" data-bs-toggle="collapse" data-bs-target="#mypageMenu" aria-controls="mypageMenu" aria-expanded="false"><i class="fa-regular fa-xmark"></i>閉じる</button>
+        </div>
+        <!-- /マイページモーダル-->
+
+        <!-- スマホ時のモーダル背景-->
+        <div class="modal mypage"></div>
+        <!-- /スマホ時のモーダル背景-->
+      </div>
+    </nav>
+  </div>
+</header>

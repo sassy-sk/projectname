@@ -1,0 +1,26 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+フラッシュメッセージ
+============================*/
+
+.flashMsg {
+  @include flexCenter(xy);
+  width: 100%;
+  position: sticky;
+  top: $scrollPaddingTopPc;
+  z-index: 100;
+  padding: 10px 20px;
+  box-sizing: border-box;
+
+  &.success {
+    background-color: var(--clMain01_light);
+  }
+  &.error {
+    background-color: var(--clAttention);
+    color: #fff;
+  }
+  @include sp {
+    top: $scrollPaddingTopSp;
+  }
+}

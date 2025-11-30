@@ -1,0 +1,28 @@
+<%#
+  ページネーション
+  include('parts/_pagination', {path : '', pageNum: '36'})
+  入力項目：
+  pageNum -> サンプル用件数（件数を各ページで変更できるように引数を取っています）
+%>
+
+<!-- ページネーション -->
+<p class="countBox text-center"><span class="count">1 - <%- pageNum %></span>件<var class="count">（999件）</var></p>
+
+<nav class="paginationBox" aria-label="...">
+  <ul class="pagination pagination-lg">
+    <li class="page-item" aria-current="page">
+      <!-- 【sys】今いるページのclassにはis_currentのセレクタを付与してください -->
+      <span class="page-link is_current">1</span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#">6</a></li>
+    <li class="page-item"><a class="page-link" href="#">100</a></li>
+  </ul>
+  <div class="move">
+    <span class="bg"><a href="#" class="prev"><i class="fa-solid fa-angle-left"></i>前へ</a></span>
+    <span class="bg"><a href="#" class="next">次へ<i class="fa-solid fa-angle-right"></i></a></span>
+  </div>
+</nav>
