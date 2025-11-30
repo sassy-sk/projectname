@@ -25,8 +25,8 @@ export default defineConfig({
         ),
         // SCSSファイルを自動検出してエントリーポイント化
         ...Object.fromEntries(
-          globSync('src/sass/**/*.scss').map(file => [
-            file.slice('src/sass/'.length, -5).replace(/\//g, '_'),
+          globSync('src/scss/**/*.scss', { ignore: 'src/scss/**/_*.scss' }).map(file => [
+            file.slice('src/scss/'.length, -5).replace(/\//g, '_'),
             resolve(__dirname, file)
           ])
         )
@@ -55,7 +55,7 @@ export default defineConfig({
       [
         '*.html',
         'parts/**/*.ejs',
-        'sass/**/*.scss'
+        'scss/**/*.scss'
       ]
     ),
     VitePluginWebpAndPath({

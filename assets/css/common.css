@@ -1,0 +1,1969 @@
+@charset "UTF-8";
+/*============================
+基本スタイル設定
+============================*/
+/* ボタンサイズ
+　　@include btnSize(s);
+　　引数のs,m,lでサイズを選択 */
+/* ユーザーアイコン（[class*="statusBorder_"]を付与したimgタグにinclude）
+　　@include profIconSize(s);
+　　引数のs,m,lでサイズを選択
+  */
+/* 会員区分アイコンのサイズ(.icon_statusにinclude)
+　　@include statusIconSize(s);
+　　引数のs,m,lでサイズを選択 */
+/*! destyle.css v3.0.2 | MIT License | https://github.com/nicolas-cusan/destyle.css */
+/* Reset box-model and set borders */
+/* ============================================ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+}
+
+/* Document */
+/* ============================================ */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Remove gray overlay on links for iOS.
+ */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-tap-highlight-color: transparent; /* 3*/
+}
+
+/* Sections */
+/* ============================================ */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/* Vertical rhythm */
+/* ============================================ */
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+  margin: 0;
+}
+
+/* Headings */
+/* ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Lists (enumeration) */
+/* ============================================ */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Lists (definition) */
+/* ============================================ */
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+/* Grouping content */
+/* ============================================ */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+  border-top-width: 1px;
+  margin: 0;
+  clear: both;
+  color: inherit;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+address {
+  font-style: inherit;
+}
+
+/* Text-level semantics */
+/* ============================================ */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Replaced content */
+/* ============================================ */
+/**
+ * Prevent vertical alignment issues.
+ */
+svg,
+img,
+embed,
+object,
+iframe {
+  vertical-align: bottom;
+}
+
+/* Forms */
+/* ============================================ */
+/**
+ * Reset form fields to make them styleable.
+ * 1. Make form elements stylable across systems iOS especially.
+ * 2. Inherit text-transform from parent.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  -webkit-appearance: none; /* 1 */
+  -moz-appearance: none;
+       appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit; /* 2 */
+}
+
+/**
+ * Reset radio and checkbox appearance to preserve their look in iOS.
+ */
+[type=checkbox] {
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+       appearance: checkbox;
+}
+
+[type=radio] {
+  -webkit-appearance: radio;
+  -moz-appearance: radio;
+       appearance: radio;
+}
+
+/**
+ * Correct cursors for clickable elements.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  cursor: pointer;
+}
+
+button:disabled,
+[type=button]:disabled,
+[type=reset]:disabled,
+[type=submit]:disabled {
+  cursor: default;
+}
+
+/**
+ * Improve outlines for Firefox and unify style with input elements & buttons.
+ */
+:-moz-focusring {
+  outline: auto;
+}
+
+select:disabled {
+  opacity: inherit;
+}
+
+/**
+ * Remove padding
+ */
+option {
+  padding: 0;
+}
+
+/**
+ * Reset to invisible
+ */
+fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the outline style in Safari.
+ */
+[type=search] {
+  outline-offset: -2px; /* 1 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Fix font inheritance.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/**
+ * Clickable labels
+ */
+label[for] {
+  cursor: pointer;
+}
+
+/* Interactive */
+/* ============================================ */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/*
+ * Remove outline for editable content.
+ */
+[contenteditable]:focus {
+  outline: auto;
+}
+
+/* Tables */
+/* ============================================ */
+/**
+1. Correct table border color inheritance in all Chrome and Safari.
+*/
+table {
+  border-color: inherit; /* 1 */
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+}
+
+td,
+th {
+  vertical-align: top;
+  padding: 0;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+}
+
+/*============================
+css変数
+============================*/
+:root {
+  --clText: #333;
+  --clLink: #3081f5;
+  --clMain01: #2390cf;
+  --clMain01_light: #daedf8;
+  --clMain01_lighter: #f8f9fb;
+  --clMain02: #f06c00;
+  --clMain02_light: #fff1e6;
+  --clMain02_lighter: #fffcf6;
+  --clAttention: #dc0c55;
+  --clAttention_light: #fdedf2;
+  --clAlert: #e00000;
+  --clAlert_light: #fce5e5;
+  --clYellow: #fef7c5;
+  --clStroke: #c8cdd0;
+  --clGray_5a: rgba(0, 0, 0, 0.05);
+  --clGray_20a: rgba(0, 0, 0, 0.2);
+  --clGray_ed: #ededed;
+  --clGray_cc: #ccc;
+  --clGray_97: #979797;
+  --clLCcolor_text_main: #333;
+  --clLCcolor_blue_main: #0b74e5;
+  --clLCcolor_orange_main: #e59500;
+  --clLCcolor_orange_sub: #fed8a0;
+  --clLCcolor_orange_bg: #fef5e7;
+  --clLCcolor_navy_main: #384860;
+  --clLCcolor_navy_sub: #768aa8;
+  --clLCcolor_navy_bg01: #f4f6fa;
+  --clLCcolor_navy_bg02: #dbe3f0;
+}
+
+/*============================
+スタイルの上書き
+============================*/
+body {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+  font-size: 16px;
+  color: var(--clText);
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1.5;
+  position: relative;
+  text-align: left;
+  word-break: break-all;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clLink);
+  transition-property: opacity;
+  transition-duration: 0.2s;
+}
+a:hover {
+  color: var(--clLink);
+  opacity: 0.7;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+
+em {
+  font-style: normal;
+}
+
+.btn:active,
+input[type=submit]:active {
+  opacity: 0.7;
+  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.3), 0px 0px 3px rgba(255, 255, 255, 0.7);
+}
+
+/*============================
+サイト全体レイアウト
+============================*/
+body {
+  display: grid;
+  grid-template: "header" auto "contents" 1fr "footer" auto/100%;
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: contents;
+}
+
+footer {
+  grid-area: footer;
+}
+
+/*============================
+汎用スタイル
+============================*/
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-top: 70px;
+}
+/*============================
+スクロール
+============================*/
+/* スクロールバー全体 */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+/* スクロールハンドル部分 */
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 1px;
+}
+
+/* スクロール背景部分 */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/*============================
+フォーム
+============================*/
+button.btn:disabled,
+input.btn:disabled {
+  cursor: no-drop !important;
+}
+
+/*============================
+spモーダルの全画面表示（bootstrap上書き）
+============================*/
+/*============================
+レスポンシブレイアウト
+============================*/
+/*============================
+会員区分アイコン
+============================*/
+[class*=userstatus_] {
+  line-height: 0;
+  font-weight: bold;
+  padding: 6px 8px;
+  border-radius: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.65rem;
+}
+[class*=userstatus_]::before {
+  display: inline-block;
+  width: 12px;
+  height: auto;
+  margin-right: 3px;
+  vertical-align: -1px;
+}
+
+.userstatus_free {
+  color: #7a7a7a;
+  background-color: #fff;
+  border: 2px solid #f0f0f0;
+}
+.userstatus_free::before {
+  content: url(images/ico_free.svg);
+}
+
+.userstatus_pengin {
+  color: #965de6;
+  background-color: #f8f5fc;
+  border: 2px solid #f1e8ff;
+}
+.userstatus_pengin::before {
+  content: url(images/ico_pengin.svg);
+}
+
+.userstatus_iruka {
+  color: #4e9cf5;
+  background-color: #f7fbff;
+  border: 2px solid #e6f2ff;
+}
+.userstatus_iruka::before {
+  content: url(images/ico_iruka.svg);
+}
+
+.userstatus_panda {
+  color: #5e9900;
+  background-color: #f7faf2;
+  border: 2px solid #e4f2d0;
+}
+.userstatus_panda::before {
+  content: url(images/ico_panda.svg);
+}
+
+.userstatus_tora {
+  color: #ef9300;
+  background-color: #fffbf2;
+  border: 2px solid #fff2d8;
+}
+.userstatus_tora::before {
+  content: url(images/ico_tora.svg);
+}
+
+.userstatus_kodomo {
+  color: #64c3c9;
+  background-color: #fff;
+  border: 2px solid #c8eef0;
+}
+.userstatus_kodomo::before {
+  content: url(images/ico_kodomo.svg);
+}
+
+.icon_status {
+  position: absolute;
+  width: 20px;
+  top: 22px;
+  left: 22px;
+}
+.icon_status[class*=userstatus_] {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+.icon_status[class*=userstatus_]::before {
+  display: none;
+}
+.icon_status.userstatus_pengin {
+  content: url(images/ico_border_pengin.svg);
+}
+.icon_status.userstatus_iruka {
+  content: url(images/ico_border_iruka.svg);
+}
+.icon_status.userstatus_panda {
+  content: url(images/ico_border_panda.svg);
+}
+.icon_status.userstatus_tora {
+  content: url(images/ico_border_tora.svg);
+}
+.icon_status.userstatus_kodomo {
+  content: url(images/ico_border_kodomo.svg);
+}
+
+/*============================
+ボタン
+============================*/
+.btn {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: opacity;
+  transition-duration: 0.2s;
+  opacity: 1;
+}
+.btn:disabled, .btn.is_disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* タブキーでの選択で枠線を表示 */
+button:focus,
+.btn:focus {
+  box-shadow: none;
+}
+button:focus-visible,
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.btn i,
+.btn svg {
+  margin: 0 4px 0 0;
+}
+
+.btn.btn_gradient {
+  border: 1px solid var(--clGray_cc);
+  background: linear-gradient(180deg, #fcfcfc 0%, #e1e1e1 100%);
+}
+.btn.btn_gradient:hover {
+  background: #fcfcfc;
+  opacity: 1 !important;
+}
+.btn.btn_gradient:active {
+  background: #fcfcfc;
+  border-color: var(--clGray_cc);
+}
+.btn.btn_clMain01 {
+  color: #fff;
+  background-color: var(--clMain01);
+}
+.btn.btn_clMain01:hover {
+  color: #fff;
+}
+.btn.btn_clMain01:active {
+  color: #fff;
+  border-color: var(--clMain01);
+  background-color: var(--clMain01);
+}
+.btn.btn_clMain01_outline {
+  color: var(--clMain01);
+  background-color: #fff;
+  border: 1px solid var(--clMain01);
+}
+.btn.btn_clMain01_outline:hover {
+  color: var(--clMain01);
+}
+.btn.btn_clMain01_outline:active {
+  color: var(--clMain01);
+  background-color: #fff;
+  border-color: var(--clMain01);
+}
+.btn.btn_clMain02 {
+  color: #fff;
+  background-color: var(--clMain02);
+}
+.btn.btn_clMain02:hover {
+  color: #fff;
+}
+.btn.btn_clMain02:active {
+  color: #fff;
+  border-color: var(--clMain02);
+  background-color: var(--clMain02);
+}
+.btn.btn_clMain02_outline {
+  color: var(--clMain02);
+  background-color: #fff;
+  border: 1px solid var(--clMain02);
+}
+.btn.btn_clMain02_outline:hover {
+  color: var(--clMain02);
+}
+.btn.btn_clMain02_outline:active {
+  color: var(--clMain02);
+  background-color: #fff;
+  border-color: var(--clMain02);
+}
+.btn.btn_clAttention {
+  color: #fff;
+  background-color: var(--clAttention);
+}
+.btn.btn_clAttention:hover {
+  color: #fff;
+}
+.btn.btn_clAttention:active {
+  color: #fff;
+  border-color: var(--clAttention);
+  background-color: var(--clAttention);
+}
+.btn.btn_clAttention_outline {
+  color: var(--clAttention);
+  background-color: #fff;
+  border: 1px solid var(--clAttention);
+}
+.btn.btn_clAttention_outline:hover {
+  color: var(--clAttention);
+}
+.btn.btn_clAttention_outline:active {
+  color: var(--clAttention);
+  background-color: #fff;
+  border-color: var(--clAttention);
+}
+.btn.btn_clGray {
+  color: #fff;
+  background-color: var(--clGray_97);
+}
+.btn.btn_clGray:hover {
+  color: #fff;
+}
+.btn.btn_clGray:active {
+  color: #fff;
+  border-color: var(--clGray_97);
+  background-color: var(--clGray_97);
+}
+.btn.btn_clGray_outline {
+  color: var(--clGray_97);
+  background-color: #fff;
+  border: 1px solid var(--clGray_97);
+}
+.btn.btn_clGray_outline:hover {
+  color: var(--clGray_97);
+}
+.btn.btn_clGray_outline:active {
+  color: var(--clGray_97);
+  border-color: var(--clGray_97);
+}
+
+/*============================
+フォーム基本設定
+============================*/
+input[type=submit] {
+  transition-property: opacity;
+  transition-duration: 0.2s;
+}
+input[type=submit]:hover {
+  opacity: 0.7;
+}
+
+input:not([type=submit]),
+textarea,
+select {
+  background-color: #fff;
+  border: solid 1px var(--clGray_cc);
+  border-radius: 4px;
+}
+
+input,
+textarea,
+select {
+  font-size: 0.875rem;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  background-color: var(--clMain01_lighter);
+  outline-color: var(--clMain01);
+}
+input::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder {
+  color: var(--clGray_cc);
+}
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: var(--clGray_cc);
+}
+input.is_error,
+textarea.is_error,
+select.is_error {
+  background-color: var(--clAttention_light);
+  outline: 2px solid var(--clAttention);
+}
+input.is_error:focus,
+textarea.is_error:focus,
+select.is_error:focus {
+  background-color: var(--clAttention_light);
+  outline: 2px solid var(--clAttention);
+}
+
+input,
+select {
+  padding: 8px 10px;
+}
+
+textarea {
+  padding: 10px;
+  width: 100%;
+  height: calc(16rem + 10px); /*デフォルトは10行分の高さに設定*/
+}
+
+input[type=checkbox],
+input[type=radio] {
+  margin-right: 5px;
+}
+
+input[type=checkbox] + label,
+input[type=radio] + label {
+  cursor: pointer;
+}
+
+input[type=checkbox]:checked + label,
+input[type=radio]:checked + label {
+  font-weight: bold;
+}
+
+input[type=text]:disabled {
+  background-color: #e2e2e2;
+}
+
+input[type=search] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/*============================
+チェックボックス
+============================*/
+.checkbox label {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+}
+.checkbox label::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid var(--clGray_97);
+  border-radius: 3px;
+  background-color: #fff;
+}
+.checkbox label.is_current::before {
+  background-color: var(--clMain01);
+  border-color: transparent;
+}
+.checkbox label input[type=checkbox] {
+  opacity: 0;
+  position: absolute;
+}
+.checkbox label input[type=checkbox]:checked + span {
+  opacity: 1;
+  display: block;
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: 12px;
+  height: 8px;
+  top: calc(50% - 5px) !important;
+  left: 4px;
+  transform: rotate(-45deg);
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+  border-color: #fff;
+}
+
+/*============================
+ラジオボタン
+============================*/
+.radiobox label {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+}
+.radiobox label::before, .radiobox label::after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0px;
+}
+.radiobox label::before {
+  background-color: #fff;
+  border: var(--clMain01) 1px solid;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+.radiobox label::after {
+  background-color: var(--clMain01);
+  border-radius: 50%;
+  opacity: 0;
+  width: 12px;
+  height: 12px;
+  left: 4px;
+}
+.radiobox input[type=radio] {
+  opacity: 0;
+  position: absolute;
+}
+.radiobox input[type=radio]:checked + label::after {
+  opacity: 1;
+}
+
+/*============================
+画像アップロード
+============================*/
+.uploadImg {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  border: 2px solid var(--clText);
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 12px 0;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  transition-property: opacity;
+  transition-duration: 0.2s;
+  opacity: 1;
+}
+.uploadImg input[type=file] {
+  opacity: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.uploadImg.is_max {
+  background-color: var(--clGray_cc);
+  color: #fff;
+  border: none;
+  pointer-events: none;
+}
+
+.selectedImg {
+  text-align: left;
+  margin: 15px auto 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 8px;
+}
+.selectedImg li {
+  width: calc((100% - 16px) / 3);
+  text-align: center;
+}
+.selectedImg li img {
+  width: auto;
+  max-width: 100%;
+  height: 140px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.selectedImg li span {
+  display: block;
+  width: 100%;
+  height: auto;
+  line-height: normal;
+  text-align: center;
+  background-color: var(--clText);
+  color: #fff;
+  font-size: 0.8125rem;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  border-radius: 4px;
+  padding: 12px 0;
+}
+.selectedImg li span:hover {
+  opacity: 0.8;
+}
+.selectedImg li span::before {
+  content: "\f00d";
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 900;
+  margin-right: 8px;
+  font-size: 0.75rem;
+}
+.selectedImg.is_only li {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.selectedImg.is_only li img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/*============================
+文字数制限
+============================*/
+.limit .present_value.is_active,
+.limit .present_value_send.is_active {
+  font-weight: bold;
+  color: var(--clAttention);
+  font-size: 1.1em;
+}
+
+.over_text,
+.over_text_send {
+  display: none;
+  color: var(--clAttention);
+  margin-top: -20px;
+  font-size: 0.875rem;
+}
+.over_text.is_active,
+.over_text_send.is_active {
+  display: block;
+}
+
+/*============================
+会員区分別検索
+============================*/
+.search_memberStatus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.search_memberStatus li[class*=member_] {
+  font-weight: bold;
+  padding: 0 8px;
+  border-radius: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.8125rem;
+  position: relative;
+}
+.search_memberStatus li[class*=member_]::before {
+  display: inline-block;
+  width: 14px;
+  height: auto;
+  margin-right: 3px;
+  vertical-align: -1px;
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+}
+.search_memberStatus li {
+  width: 140px;
+}
+.search_memberStatus li.member_pengin {
+  color: #965de6;
+  background-color: #f8f5fc;
+  border: 2px solid #f1e8ff;
+}
+.search_memberStatus li.member_pengin::before {
+  content: url(images/ico_pengin.svg);
+}
+.search_memberStatus li.member_iruka {
+  color: #4e9cf5;
+  background-color: #f7fbff;
+  border: 2px solid #e6f2ff;
+}
+.search_memberStatus li.member_iruka::before {
+  content: url(images/ico_iruka.svg);
+}
+.search_memberStatus li.member_panda {
+  color: #5e9900;
+  background-color: #f7faf2;
+  border: 2px solid #e4f2d0;
+}
+.search_memberStatus li.member_panda::before {
+  content: url(images/ico_panda.svg);
+}
+.search_memberStatus li.member_tora {
+  color: #ef9300;
+  background-color: #fffbf2;
+  border: 2px solid #fff2d8;
+}
+.search_memberStatus li.member_tora::before {
+  content: url(images/ico_tora.svg);
+}
+.search_memberStatus li.member_kodomo {
+  color: #64c3c9;
+  background-color: #fff;
+  border: 2px solid #c8eef0;
+}
+.search_memberStatus li.member_kodomo::before {
+  content: url(images/ico_kodomo.svg);
+}
+.search_memberStatus li.checkbox label {
+  cursor: pointer;
+  display: block;
+  padding: 6px 0 6px 40px;
+}
+.search_memberStatus li.checkbox label::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid var(--clGray_97);
+  border-radius: 3px;
+  background-color: #fff;
+}
+.search_memberStatus li.checkbox label.is_current::before {
+  background-color: var(--clMain01);
+  border-color: transparent;
+}
+.search_memberStatus li.checkbox label input[type=checkbox]:checked + span {
+  width: 9px;
+  height: 8px;
+}
+
+/*============================
+テキスト
+============================*/
+.txt_attention,
+a.text_attention {
+  color: var(--clAttention);
+}
+
+.txt_error {
+  display: none;
+  color: var(--clAttention);
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin: 2px 0;
+}
+.txt_error.is_active {
+  display: block;
+}
+
+/*============================
+モーダル
+============================*/
+.modal-footer {
+  border-top: none;
+}
+.modal-footer .btn {
+  font-weight: bold;
+}
+
+/*============================
+ステータスメッセージ
+============================*/
+.statusMsg {
+  padding: 12px;
+  border-radius: 4px;
+}
+.statusMsg.success {
+  background-color: var(--clMain01_light);
+}
+.statusMsg.error {
+  background-color: var(--clAttention);
+  color: #fff;
+}
+.statusMsg.attention {
+  background-color: var(--clAttention_light);
+}
+.statusMsg.null {
+  background-color: var(--clGray_ed);
+}
+.statusMsg .title {
+  text-align: center;
+}
+.statusMsg .txt {
+  font-size: 0.8125rem;
+}
+.statusMsg .txt strong {
+  font-size: 0.875rem;
+}
+
+/*============================
+ページトップボタン
+============================*/
+#pagetop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 100;
+  right: 24px;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  font-size: 1.375rem;
+  color: #fff;
+  background-color: var(--clMain01);
+  border-radius: 50%;
+  border: solid 1px #fff;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+#pagetop:hover {
+  opacity: 1;
+  filter: brightness(1.2);
+}
+
+/*============================
+パンくずリスト
+============================*/
+.breadcrumb_list {
+  display: flex;
+  align-items: center;
+  width: min(100%, 1200px);
+  margin: 10px auto;
+}
+
+.breadcrumb_item {
+  font-size: 0.6875rem;
+}
+.breadcrumb_item a::after {
+  content: "＞";
+  color: var(--clText);
+  padding: 0 1em;
+}
+
+/*============================
+ツールチップ
+============================*/
+.tip {
+  position: absolute;
+  display: block;
+  color: #fff;
+  background-color: #434343;
+  font-size: 0.6875rem;
+  font-weight: bold;
+  width: 120px;
+  text-align: center;
+  padding: 5px 0;
+  transform: translateX(-50%) translateY(-120%);
+  left: 50%;
+  border: #fff 1px solid;
+  border-radius: 4px;
+  top: 0px;
+  z-index: 1;
+  pointer-events: none;
+  transition-property: transform, opacity;
+  transition-duration: 0.2s;
+  opacity: 0;
+}
+.tip::before {
+  border: 12px solid transparent;
+  border-top: 12px solid #555;
+}
+.tip::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #434343;
+  border-top: transparent 1px solid;
+  border-right: #fff 1px solid;
+  border-left: transparent 1px solid;
+  border-bottom: #fff 1px solid;
+  position: absolute;
+  border-radius: 2px;
+  transform: translate(-50%, 50%) rotate(45deg);
+  bottom: 1px;
+  left: 50%;
+  z-index: -1;
+}
+
+/*============================
+ヘッダー
+============================*/
+.header {
+  position: relative;
+  width: 100%;
+}
+
+.header_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  z-index: 1000;
+  box-shadow: 0 1px 1px rgba(97, 97, 97, 0.1);
+}
+
+.header_navbar {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header_navbar .logo {
+  margin: 0 1rem 0 0;
+}
+.header_navbar .logo img {
+  width: 210px;
+  height: auto;
+}
+
+/*============================
+ヘッダー検索
+============================*/
+.header_search {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 5px 0 0;
+}
+
+.header_searchForm {
+  position: relative;
+  width: 100%;
+  display: flex;
+  height: 44px;
+}
+.header_searchForm input[type=search] {
+  line-height: 34px;
+  padding: 0 12px;
+  width: 100%;
+  min-width: 100px;
+  max-width: 335px;
+  border-radius: 21px;
+  border: solid 1px var(--clGray_cc);
+  border-right: none;
+  color: var(--clText);
+  font-size: 0.8125rem;
+}
+.header_searchForm input[type=search]:focus {
+  outline: var(--clMain01) 2px solid;
+}
+.header_searchForm .bg {
+  display: inline-block;
+  background: #fff;
+  width: 42px;
+  min-width: 42px;
+  border-radius: 0 21px 21px 0;
+  margin: 0 0 0 -42px;
+}
+.header_searchForm .submitBtn {
+  height: 44px;
+  width: 100%;
+  border-left: none;
+  border-radius: 0 21px 21px 0;
+  color: #fff;
+  text-align: center;
+  background: var(--clMain01);
+}
+.header_searchForm .submitBtn i {
+  font-size: 18px;
+  line-height: 36px;
+}
+
+/*============================
+ヘッダー内ナビゲーション
+============================*/
+.header_nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  margin: 0 0 0 5px;
+}
+.header_nav .btn {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  padding: 0 8px;
+}
+.header_nav .btn img {
+  margin: 0 5px 0 0;
+}
+.header_nav .btn_service_order {
+  width: 110px;
+  height: 40px;
+  font-size: 0.875rem;
+}
+.header_nav .btn_favorite,
+.header_nav .btn_order_history {
+  width: 110px;
+  height: 40px;
+  font-size: 0.8125rem;
+}
+.header_nav .btn_favorite i,
+.header_nav .btn_order_history i {
+  color: var(--clMain01);
+}
+.header_nav .menu_btn {
+  width: 60px;
+  height: 70px;
+  text-align: center;
+  color: var(--clText);
+  font-size: 0.6875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+.header_nav .menu_btn > i {
+  font-size: 25px;
+  width: 100%;
+  margin: 12px 0 0;
+  color: var(--clMain01);
+}
+.header_nav {
+  /* お知らせ・マイページメニュー */
+}
+.header_nav .btn_notification,
+.header_nav .btn_mypage {
+  position: relative;
+}
+.header_nav .btn_notification .notification_badge {
+  background-color: var(--clAttention);
+  color: #fff;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border: solid 1px #fff;
+  font-size: 0.625rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 22px;
+  right: 5px;
+}
+.header_nav .btn_mypage {
+  text-align: center;
+}
+.header_nav .btn_mypage img {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  margin: 8px auto -5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: var(--clGray_ed) solid 1px;
+}
+
+/*ヘッダーメニュー*/
+.header_menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  width: 300px;
+  color: var(--clText);
+  background-color: var(--clText);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+.header_menu:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  right: 16px;
+  border: 12px solid transparent;
+  border-bottom: 12px solid var(--clMain01_light);
+  transform: scale(0.8, 1);
+}
+.header_menu.is_farmer:before {
+  border-bottom: 12px solid var(--clMain02_light);
+}
+.header_menu .serviceMenu .caption {
+  color: var(--clText);
+  background-color: var(--clMain01_light);
+}
+.header_menu .btn_close {
+  border-radius: 0;
+  padding-top: 5px;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_menu .btn_close i {
+  margin-right: 8px;
+}
+.header_menu .btn_side {
+  align-items: center;
+  margin-right: 0;
+}
+.header_menu .btn_side .btn {
+  width: calc(100% - 40px);
+  margin-right: 0 !important;
+}
+.header_menu .btn_side .btn.btn_clMain_border {
+  border-width: 2px;
+}
+
+/*お知らせ*/
+#notificationList {
+  width: 400px;
+}
+#notificationList.header_menu:before {
+  right: 76px;
+  border-bottom-color: #fff;
+  filter: drop-shadow(-1px -2px 2px rgba(0, 0, 0, 0.1));
+}
+#notificationList ul {
+  border-radius: 4px;
+  background: #fff;
+  max-height: 400px;
+  overflow-y: scroll;
+  display: block;
+  border-radius: 0;
+}
+#notificationList li {
+  position: relative;
+  width: 100%;
+  line-height: 1.5em;
+  position: relative;
+  /* 未読 */
+}
+#notificationList li.is_unread a {
+  background-color: var(--clMain01_lighter);
+}
+#notificationList li i {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  color: var(--clGray_97);
+}
+#notificationList li a {
+  display: grid;
+  grid-template-areas: "image date" "image message";
+  grid-template-columns: 64px 1fr;
+  gap: 5px 10px;
+  align-items: center;
+  padding: 10px 40px 10px 16px;
+  border-bottom: solid 1px var(--clGray_cc);
+}
+#notificationList li a time {
+  grid-area: date;
+  display: block;
+  color: var(--clGray_97);
+  font-size: 0.6875rem;
+  width: 100%;
+}
+#notificationList li a p {
+  grid-area: message;
+  font-size: 0.875rem;
+  color: var(--clText);
+  line-height: 1.3;
+}
+#notificationList li a .notificationImg {
+  grid-area: image;
+  position: relative;
+}
+#notificationList li a .notificationImg img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3/2;
+  border-radius: 6px;
+  border: solid 1px var(--clGray_cc);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#notificationList {
+  /* メッセージが0件のとき */
+}
+#notificationList .no_message {
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 10px 16px;
+  background-color: #fff;
+}
+
+/*============================
+マイページメニュー
+============================*/
+#mypageMenu::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
+}
+#mypageMenu .navbar-nav {
+  flex-direction: column;
+  display: flex;
+  background-color: #fff;
+}
+#mypageMenu .nav-item {
+  padding: 0 20px;
+  position: relative;
+  border-bottom: var(--clGray_ed) 1px solid;
+  margin-bottom: 0;
+}
+#mypageMenu .nav-item a {
+  color: var(--clText);
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+}
+#mypageMenu .nav-item a i,
+#mypageMenu .nav-item a img {
+  color: var(--clGray_97);
+  margin-right: 10px;
+}
+#mypageMenu .caption {
+  padding: 2px 15px;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+/*============================
+フッター
+============================*/
+.footer {
+  width: 100%;
+  background-color: var(--clMain01_light);
+}
+.footer .footer_container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 22px 0;
+}
+.footer .btn_group {
+  margin: 0 20px 0 0;
+}
+.footer .btn_group a {
+  padding: 10px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .btn_group a:not(last-of-type) {
+  margin-right: 10px;
+}
+.footer .btn_group a.btn_guide {
+  display: none;
+}
+.footer .btn_group a.btn_guide img {
+  filter: invert(26%) sepia(10%) saturate(13%) hue-rotate(332deg) brightness(98%) contrast(96%);
+}
+.footer .btn_group a img {
+  width: auto;
+  height: 20px;
+  margin-right: 5px;
+}
+
+/*============================
+フッター内ナビゲーション
+============================*/
+.footer_nav a {
+  color: var(--clText);
+  font-size: 0.75rem;
+  border-right: solid 1px var(--clText);
+  padding: 0 10px;
+}
+.footer_nav a:first-child {
+  padding: 0 10px 0 0;
+}
+.footer_nav a:last-child {
+  border-right: none;
+}
+.footer_nav a:hover {
+  text-decoration: underline;
+}
+
+/*============================
+コピーライト
+============================*/
+.copyright {
+  display: block;
+  background-color: #7fc893;
+  font-size: 0.625rem;
+  text-align: center;
+}
+
+/*============================
+レイアウト
+============================*/
+main {
+  margin-top: 70px;
+}
+
+#wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (width > 768px){
+  .sp_only {
+    display: none !important;
+  }
+}
+
+@media (769px < width <= 1199px){
+  .header_navbar {
+    width: 98%;
+  }
+  .footer .footer_container {
+    width: 98%;
+  }
+  #wrapper {
+    width: 98%;
+  }
+}
+
+@media (width <= 768px){
+  html {
+    scroll-padding-top: 60px;
+  }
+  .modal.full_screen {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+  }
+  .modal.full_screen::-webkit-scrollbar {
+    display: none;
+  }
+  .modal.full_screen {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    overflow: auto;
+    background-color: #fff;
+  }
+  .modal.full_screen .modal-dialog {
+    margin: 0;
+    max-width: none;
+  }
+  .modal.full_screen .modal-content {
+    width: 100vw;
+    min-height: 100svh;
+    border: none;
+  }
+  .modal.full_screen .modal-header {
+    border-radius: 0;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 600;
+  }
+  .modal.full_screen .modal-header .close {
+    opacity: 1;
+  }
+  .modal.full_screen .modal-footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  .pc_only {
+    display: none !important;
+  }
+  .selectedImg li img {
+    height: 80px;
+  }
+  .over_text,
+  .over_text_send {
+    margin: 5px auto 0;
+  }
+  #pagetop {
+    right: 12px;
+    bottom: 12px;
+  }
+  .breadcrumb_list {
+    padding: 0 20px;
+  }
+  .tip {
+    display: none;
+  }
+  .header_container {
+    height: 60px;
+  }
+  .header_navbar .logo {
+    margin: 0 10px 0 20px;
+    flex: 1;
+  }
+  .header_navbar .logo img {
+    max-width: 173px;
+  }
+  .header_nav {
+    margin: 0;
+  }
+  .header_nav .btn img {
+    margin: 0 0 5px 0;
+  }
+  .header_nav .btn_service_order {
+    width: 60px;
+    height: 60px;
+    font-size: 0.6875rem;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 3px 3px;
+    border-radius: 0;
+  }
+  .header_nav .btn_service_order img {
+    width: 20px;
+  }
+  .header_nav .btn_favorite,
+  .header_nav .btn_order_history {
+    display: none;
+  }
+  .header_nav .menu_btn {
+    width: 56px;
+    height: 60px;
+  }
+  .header_nav .btn_notification:not(.collapsed) ~ #notificationList ~ .modal.notification, .header_nav .btn_notification:not(.collapsed) ~ #mypageMenu ~ .modal.mypage,
+  .header_nav .btn_mypage:not(.collapsed) ~ #notificationList ~ .modal.notification,
+  .header_nav .btn_mypage:not(.collapsed) ~ #mypageMenu ~ .modal.mypage {
+    transition: 0.3s;
+    display: block;
+  }
+  .header_nav .btn_notification[aria-expanded=true],
+  .header_nav .btn_mypage[aria-expanded=true] {
+    z-index: 1000;
+  }
+  .header_nav .btn_mypage img {
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+  }
+  .header_menu:before {
+    display: none;
+  }
+  .header_menu {
+    width: 100vw !important;
+    top: 100%;
+  }
+  .header_menu + .modal.notification,
+  .header_menu + .modal.mypage {
+    z-index: 10;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100vh;
+  }
+  .header_menu .navbar-nav {
+    width: 100vw;
+  }
+  .header_menu .btn_side .btn {
+    -moz-column-gap: 10px;
+         column-gap: 10px;
+  }
+  .header_menu .btn_side .btn img {
+    margin: 0 !important;
+  }
+  #mypageMenu {
+    width: 100%;
+    top: 100%;
+    max-height: calc(100vh - 100%);
+    max-height: calc(100dvh - 100%);
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE, Edge 対応 */
+    scrollbar-width: none; /* Firefox 対応 */
+  }
+  #mypageMenu .navbar-nav {
+    height: 120vh;
+  }
+  .footer .footer_container {
+    flex-direction: column;
+  }
+  .footer .btn_group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 20px 0;
+  }
+  .footer .btn_group a.btn_guide {
+    display: block;
+  }
+  main {
+    margin-top: 60px;
+  }
+  #wrapper {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 374px){
+  .header_navbar .logo {
+    margin: 0 10px;
+  }
+  .header_navbar .logo img {
+    max-width: 130px;
+  }
+}
+
+@media (any-hover: hover){
+  .btn:hover {
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  .uploadImg:hover {
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html {
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: auto;
+  }
+}
