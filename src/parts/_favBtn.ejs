@@ -1,0 +1,14 @@
+<%#
+    お気に入りボタン
+    include('parts/_favBtn', {path: '', count: '30', isActive: false})
+    入力項目：
+    count -> サンプルのカウント数
+    isActive -> "true" にするとハートON、falseはOFF
+%>
+
+<!-- 【sys】お気に入り数が1000を超えた場合「999+」という表記にする -->
+<% if(isActive) { %>
+<button name="button" type="button" class="btn favBtn js_favBtn is_active"><i class="fal fa-heart" aria-hidden="true"></i><span class="count"><%= count %></span><span class="tip">お気に入りから削除</span></button>
+<% } else { %>
+<button name="button" type="button" class="btn favBtn js_favBtn"><i class="fal fa-heart"></i><span class="count"><%= count %></span><span class="tip">お気に入りに追加</span></button>
+<% } %>

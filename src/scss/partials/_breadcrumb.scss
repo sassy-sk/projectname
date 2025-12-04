@@ -1,0 +1,25 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+パンくずリスト
+============================*/
+
+.breadcrumb_list {
+  @include flexCenter(y);
+  width: min(100%, $pcWidth);
+  margin: 10px auto;
+
+  @include sp {
+    padding: 0 20px;
+  }
+}
+.breadcrumb_item {
+  font-size: rem(11);
+  a {
+    &::after {
+      content: "＞";
+      color: var(--clText);
+      padding: 0 1em;
+    }
+  }
+}

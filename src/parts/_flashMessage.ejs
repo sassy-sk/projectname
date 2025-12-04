@@ -1,0 +1,10 @@
+<%#
+    フラッシュメッセージ
+    include('_flashMessage', {path: '', status: 'success', text: '基本情報を保存しました'})
+    入力項目：
+    status -> ステータス。"success","error"
+%>
+
+<!-- フラッシュメッセージ -->
+<!-- 【sys】.is_activeを付与するとバナーが出ます。現在はモック確認のため常時付与しています -->
+<p class="flashMsg <%= status %> js_flashMsg is_active"><%= text %></p>

@@ -1,0 +1,31 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+商品カテゴリー（検索結果・商品詳細等）
+============================*/
+.categoryIndex {
+  @include flexCenter(y);
+  margin-bottom: 12px;
+  .category_list {
+    &:not(:last-child) {
+      &::after {
+        content: ">";
+        display: inline-block;
+        padding: 0 6px;
+      }
+    }
+  }
+
+  .category_link {
+    display: inline-block;
+    border: var(--clGray_cc) 1px solid;
+    border-radius: 4px;
+    padding: 4px 8px;
+    background-color: #fff;
+    font-size: rem(12);
+    color: var(--clText);
+    &:hover {
+      @include transition(all);
+    }
+  }
+}

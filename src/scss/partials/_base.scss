@@ -1,0 +1,208 @@
+@use "../partial" as *; // 名前空間を省略
+
+// こちらのファイルには基本追記しません。
+
+/*============================
+css変数
+============================*/
+:root {
+  // カラー設定
+  --clText: #333;
+  --clLink: #3081f5;
+
+  --clMain01: #2390cf;
+  --clMain01_light: #daedf8;
+  --clMain01_lighter: #f8f9fb;
+  --clMain02: #f06c00;
+  --clMain02_light: #fff1e6;
+  --clMain02_lighter: #fffcf6;
+
+  --clAttention: #dc0c55;
+  --clAttention_light: #fdedf2;
+
+  --clAlert: #e00000;
+  --clAlert_light: #fce5e5;
+
+  --clYellow: #fef7c5;
+  --clStroke: #c8cdd0;
+
+  --clGray_5a: rgba(0, 0, 0, 0.05);
+  --clGray_20a: rgba(0, 0, 0, 0.2);
+  --clGray_ed: #ededed;
+  --clGray_cc: #ccc;
+  --clGray_97: #979797;
+
+  --clLCcolor_text_main: #333;
+  --clLCcolor_blue_main: #0b74e5;
+  --clLCcolor_orange_main: #e59500;
+  --clLCcolor_orange_sub: #fed8a0;
+  --clLCcolor_orange_bg: #fef5e7;
+  --clLCcolor_navy_main: #384860;
+  --clLCcolor_navy_sub: #768aa8;
+  --clLCcolor_navy_bg01: #f4f6fa;
+  --clLCcolor_navy_bg02: #dbe3f0;
+}
+
+/*============================
+スタイルの上書き
+============================*/
+body {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+  font-size: $baseFontSize + px;
+  color: var(--clText);
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1.5;
+  position: relative;
+  text-align: left;
+  word-break: break-all;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clLink);
+  @include transition(opacity, 0.2s);
+  &:hover {
+    //Bootstrap打ち消し
+    color: var(--clLink);
+    opacity: 0.7;
+  }
+  &:link {
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+}
+
+:where(em) {
+  font-style: normal;
+}
+
+.btn:active,
+input[type="submit"]:active {
+  opacity: 0.7;
+  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.3), 0px 0px 3px rgba(255, 255, 255, 0.7);
+}
+
+/*============================
+サイト全体レイアウト
+============================*/
+body {
+  display: grid;
+  grid-template: "header" auto "contents" 1fr "footer" auto/100%;
+  min-height: 100vh;
+}
+header {
+  grid-area: header;
+}
+main {
+  grid-area: contents;
+}
+footer {
+  grid-area: footer;
+}
+
+/*============================
+汎用スタイル
+============================*/
+html {
+  // スムーススクロール
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-top: $scrollPaddingTopPc;
+  @include sp {
+    scroll-padding-top: $scrollPaddingTopSp;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    // 必要不可欠でないアニメーションを無効にするスタイル
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: auto;
+  }
+}
+
+/*============================
+スクロール
+============================*/
+/* スクロールバー全体 */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+/* スクロールハンドル部分 */
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 1px;
+}
+
+/* スクロール背景部分 */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/*============================
+フォーム
+============================*/
+button.btn:disabled,
+input.btn:disabled {
+  // ドロップ禁止カーソル（IE6以上の独自拡張）
+  cursor: no-drop !important;
+}
+
+/*============================
+spモーダルの全画面表示（bootstrap上書き）
+============================*/
+@include sp {
+  .modal {
+    &.full_screen {
+      @include hideScrollBar;
+      overflow: auto;
+      background-color: #fff;
+      .modal-dialog {
+        margin: 0;
+        max-width: none;
+      }
+      .modal-content {
+        width: 100vw;
+        min-height: 100svh;
+        border: none;
+      }
+      .modal-header {
+        border-radius: 0;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 600;
+        .close {
+          opacity: 1;
+        }
+      }
+      .modal-footer {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+/*============================
+レスポンシブレイアウト
+============================*/
+// スマホのみ表示
+@include sp {
+  .pc_only {
+    display: none !important;
+  }
+}
+// PCのみ表示
+@include pc {
+  .sp_only {
+    display: none !important;
+  }
+}

@@ -1,0 +1,22 @@
+@use "../partial" as *; // 名前空間を省略
+
+/*============================
+テキスト
+============================*/
+
+.txt_attention,
+a.text_attention {
+  color: var(--clAttention);
+}
+
+// エラーメッセージ
+.txt_error {
+  display: none;
+  color: var(--clAttention);
+  font-weight: bold;
+  font-size: rem(14);
+  margin: 2px 0;
+  &.is_active {
+    display: block;
+  }
+}
