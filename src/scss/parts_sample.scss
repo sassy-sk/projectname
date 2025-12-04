@@ -10,26 +10,12 @@
 // 商品詳細・検索結果カテゴリー
 @use "./partials/categoryIndex";
 
-// 商品写真モーダル（swiper)
-@use "./partials/_modal_swiperImg";
-
-// スマホ版商品写真(Swiper利用・768px以下で発動)
-@use "./partials/_sp_swiperImg";
-
-// 質問コメント
-@use "./partials/userComment";
-
-// 商品レビュー
-@use "./partials/review";
-
 // 商品カード
 @use "./partials/itemCard";
 
 // お気に入りボタン
 @use "./partials/favBtn";
 
-// 生産者情報
-@use "./partials/farmerProf";
 
 /*============================
 セクションタイトル

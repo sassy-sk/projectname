@@ -10,9 +10,6 @@
 // 汎用スタイル・全体レイアウト・スクロールバー
 @use "./partials/base";
 
-// 会員区分・ユーザーアイコン・ユーザープロフィール
-@use "./partials/userStatus";
-
 // ボタン
 @use "./partials/btn";
 
@@ -21,9 +18,6 @@
 
 // テキスト
 @use "./partials/text";
-
-// モーダル
-@use "./partials/modal";
 
 // ステータスメッセージ（売り切れ・結果0等）
 @use "./partials/statusMessage";
@@ -45,5 +39,3 @@
 
 // レイアウト
 @use "./partials/layout";
-
-// マイクロサービスごとの共通CSSは下記に記載▼

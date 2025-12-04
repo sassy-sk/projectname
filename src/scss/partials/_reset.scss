@@ -4,8 +4,8 @@
 /* ============================================ */
 
 *,
-::before,
-::after {
+:where(::before),
+:where(::after) {
   box-sizing: border-box;
   border-style: solid;
   border-width: 0;
@@ -48,27 +48,27 @@ main {
 /* Vertical rhythm */
 /* ============================================ */
 
-p,
-table,
-blockquote,
-address,
-pre,
-iframe,
-form,
-figure,
-dl {
+:where(p),
+:where(table),
+:where(blockquote),
+:where(address),
+:where(pre),
+:where(iframe),
+:where(form),
+:where(figure),
+:where(dl) {
   margin: 0;
 }
 
 /* Headings */
 /* ============================================ */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:where(h1),
+:where(h2),
+:where(h3),
+:where(h4),
+:where(h5),
+:where(h6) {
   font-size: inherit;
   font-weight: inherit;
   margin: 0;
@@ -77,8 +77,8 @@ h6 {
 /* Lists (enumeration) */
 /* ============================================ */
 
-ul,
-ol {
+:where(ul),
+:where(ol) {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -87,11 +87,11 @@ ol {
 /* Lists (definition) */
 /* ============================================ */
 
-dt {
+:where(dt) {
   font-weight: bold;
 }
 
-dd {
+:where(dd) {
   margin-left: 0;
 }
 
@@ -103,7 +103,7 @@ dd {
  * 2. Show the overflow in Edge and IE.
  */
 
-hr {
+:where(hr) {
   box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
@@ -118,12 +118,12 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-pre {
+:where(pre) {
   font-family: monospace, monospace; /* 1 */
   font-size: inherit; /* 2 */
 }
 
-address {
+:where(address) {
   font-style: inherit;
 }
 
@@ -134,7 +134,7 @@ address {
  * Remove the gray background on active links in IE 10.
  */
 
-a {
+:where(a) {
   background-color: transparent;
   text-decoration: none;
   color: inherit;
@@ -153,8 +153,8 @@ abbr[title] {
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-b,
-strong {
+:where(b),
+:where(strong) {
   font-weight: bolder;
 }
 
@@ -163,9 +163,9 @@ strong {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-code,
-kbd,
-samp {
+:where(code),
+:where(kbd),
+:where(samp) {
   font-family: monospace, monospace; /* 1 */
   font-size: inherit; /* 2 */
 }
@@ -174,7 +174,7 @@ samp {
  * Add the correct font size in all browsers.
  */
 
-small {
+:where(small) {
   font-size: 80%;
 }
 
@@ -183,19 +183,19 @@ small {
  * all browsers.
  */
 
-sub,
-sup {
+:where(sub),
+:where(sup) {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
-sub {
+:where(sub) {
   bottom: -0.25em;
 }
 
-sup {
+:where(sup) {
   top: -0.5em;
 }
 
@@ -206,11 +206,11 @@ sup {
  * Prevent vertical alignment issues.
  */
 
-svg,
-img,
-embed,
-object,
-iframe {
+:where(svg),
+:where(img),
+:where(embed),
+:where(object),
+:where(iframe) {
   vertical-align: bottom;
 }
 
@@ -223,11 +223,11 @@ iframe {
  * 2. Inherit text-transform from parent.
  */
 
-button,
-input,
-optgroup,
-select,
-textarea {
+:where(button),
+:where(input),
+:where(optgroup),
+:where(select),
+:where(textarea) {
   -webkit-appearance: none; /* 1 */
   appearance: none;
   vertical-align: middle;
@@ -259,17 +259,17 @@ textarea {
  * Correct cursors for clickable elements.
  */
 
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+:where(button),
+:where([type="button"]),
+:where([type="reset"]),
+:where([type="submit"]) {
   cursor: pointer;
 }
 
-button:disabled,
-[type="button"]:disabled,
-[type="reset"]:disabled,
-[type="submit"]:disabled {
+:where(button):disabled,
+:where([type="button"]):disabled,
+:where([type="reset"]):disabled,
+:where([type="submit"]):disabled {
   cursor: default;
 }
 
@@ -289,7 +289,7 @@ select:disabled {
  * Remove padding
  */
 
-option {
+:where(option) {
   padding: 0;
 }
 
@@ -297,13 +297,13 @@ option {
  * Reset to invisible
  */
 
-fieldset {
+:where(fieldset) {
   margin: 0;
   padding: 0;
   min-width: 0;
 }
 
-legend {
+:where(legend) {
   padding: 0;
 }
 
@@ -311,7 +311,7 @@ legend {
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
 
-progress {
+:where(progress) {
   vertical-align: baseline;
 }
 
@@ -319,7 +319,7 @@ progress {
  * Remove the default vertical scrollbar in IE 10+.
  */
 
-textarea {
+:where(textarea) {
   overflow: auto;
 }
 
@@ -373,7 +373,7 @@ label[for] {
  * Add the correct display in Edge, IE 10+, and Firefox.
  */
 
-details {
+:where(details) {
   display: block;
 }
 
@@ -381,7 +381,7 @@ details {
  * Add the correct display in all browsers.
  */
 
-summary {
+:where(summary) {
   display: list-item;
 }
 
@@ -400,22 +400,22 @@ summary {
 1. Correct table border color inheritance in all Chrome and Safari.
 */
 
-table {
+:where(table) {
   border-color: inherit; /* 1 */
   border-collapse: collapse;
 }
 
-caption {
+:where(caption) {
   text-align: left;
 }
 
-td,
-th {
+:where(td),
+:where(th) {
   vertical-align: top;
   padding: 0;
 }
 
-th {
+:where(th) {
   text-align: left;
   font-weight: bold;
 }

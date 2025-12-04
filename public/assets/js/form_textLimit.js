@@ -2,10 +2,10 @@
  * 【フォーム】テキストエリアの文字制限
  */
 
-$(function () {
-  const limit50 = $(".js_textLimit50");
-  const limit100 = $(".js_textLimit100");
-  const limit1000 = $(".js_textLimit1000");
+document.addEventListener('DOMContentLoaded', function () {
+  const limit50 = document.querySelectorAll(".js_textLimit50");
+  const limit100 = document.querySelectorAll(".js_textLimit100");
+  const limit1000 = document.querySelectorAll(".js_textLimit1000");
 
   const textareaError = function (elem, limitNUm) {
     const element = elem.currentTarget;
@@ -28,8 +28,20 @@ $(function () {
     }
   };
 
+  // イベントリスナーを設定する関数
+  const addTextLimitEvents = function (elements, limitNum) {
+    const events = ['keydown', 'keyup', 'keypress', 'paste', 'change'];
+    elements.forEach(function (element) {
+      events.forEach(function (eventType) {
+        element.addEventListener(eventType, function (e) {
+          textareaError(e, limitNum);
+        });
+      });
+    });
+  };
+
   // 実行
-  limit50.on("keydown keyup keypress paste change", e => textareaError(e, 50));
-  limit100.on("keydown keyup keypress paste change", e => textareaError(e, 100));
-  limit1000.on("keydown keyup keypress paste change", e => textareaError(e, 1000));
+  addTextLimitEvents(limit50, 50);
+  addTextLimitEvents(limit100, 100);
+  addTextLimitEvents(limit1000, 1000);
 });

@@ -16,8 +16,8 @@
 /* Reset box-model and set borders */
 /* ============================================ */
 *,
-::before,
-::after {
+:where(::before),
+:where(::after) {
   box-sizing: border-box;
   border-style: solid;
   border-width: 0;
@@ -54,26 +54,26 @@ main {
 
 /* Vertical rhythm */
 /* ============================================ */
-p,
-table,
-blockquote,
-address,
-pre,
-iframe,
-form,
-figure,
-dl {
+:where(p),
+:where(table),
+:where(blockquote),
+:where(address),
+:where(pre),
+:where(iframe),
+:where(form),
+:where(figure),
+:where(dl) {
   margin: 0;
 }
 
 /* Headings */
 /* ============================================ */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:where(h1),
+:where(h2),
+:where(h3),
+:where(h4),
+:where(h5),
+:where(h6) {
   font-size: inherit;
   font-weight: inherit;
   margin: 0;
@@ -81,8 +81,8 @@ h6 {
 
 /* Lists (enumeration) */
 /* ============================================ */
-ul,
-ol {
+:where(ul),
+:where(ol) {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -90,11 +90,11 @@ ol {
 
 /* Lists (definition) */
 /* ============================================ */
-dt {
+:where(dt) {
   font-weight: bold;
 }
 
-dd {
+:where(dd) {
   margin-left: 0;
 }
 
@@ -104,7 +104,7 @@ dd {
  * 1. Add the correct box sizing in Firefox.
  * 2. Show the overflow in Edge and IE.
  */
-hr {
+:where(hr) {
   box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
@@ -118,12 +118,12 @@ hr {
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
-pre {
+:where(pre) {
   font-family: monospace, monospace; /* 1 */
   font-size: inherit; /* 2 */
 }
 
-address {
+:where(address) {
   font-style: inherit;
 }
 
@@ -132,7 +132,7 @@ address {
 /**
  * Remove the gray background on active links in IE 10.
  */
-a {
+:where(a) {
   background-color: transparent;
   text-decoration: none;
   color: inherit;
@@ -150,8 +150,8 @@ abbr[title] {
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
-b,
-strong {
+:where(b),
+:where(strong) {
   font-weight: bolder;
 }
 
@@ -159,9 +159,9 @@ strong {
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
-code,
-kbd,
-samp {
+:where(code),
+:where(kbd),
+:where(samp) {
   font-family: monospace, monospace; /* 1 */
   font-size: inherit; /* 2 */
 }
@@ -169,7 +169,7 @@ samp {
 /**
  * Add the correct font size in all browsers.
  */
-small {
+:where(small) {
   font-size: 80%;
 }
 
@@ -177,19 +177,19 @@ small {
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
  */
-sub,
-sup {
+:where(sub),
+:where(sup) {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
-sub {
+:where(sub) {
   bottom: -0.25em;
 }
 
-sup {
+:where(sup) {
   top: -0.5em;
 }
 
@@ -198,11 +198,11 @@ sup {
 /**
  * Prevent vertical alignment issues.
  */
-svg,
-img,
-embed,
-object,
-iframe {
+:where(svg),
+:where(img),
+:where(embed),
+:where(object),
+:where(iframe) {
   vertical-align: bottom;
 }
 
@@ -213,11 +213,11 @@ iframe {
  * 1. Make form elements stylable across systems iOS especially.
  * 2. Inherit text-transform from parent.
  */
-button,
-input,
-optgroup,
-select,
-textarea {
+:where(button),
+:where(input),
+:where(optgroup),
+:where(select),
+:where(textarea) {
   -webkit-appearance: none; /* 1 */
   -moz-appearance: none;
        appearance: none;
@@ -250,17 +250,17 @@ textarea {
 /**
  * Correct cursors for clickable elements.
  */
-button,
-[type=button],
-[type=reset],
-[type=submit] {
+:where(button),
+:where([type=button]),
+:where([type=reset]),
+:where([type=submit]) {
   cursor: pointer;
 }
 
-button:disabled,
-[type=button]:disabled,
-[type=reset]:disabled,
-[type=submit]:disabled {
+:where(button):disabled,
+:where([type=button]):disabled,
+:where([type=reset]):disabled,
+:where([type=submit]):disabled {
   cursor: default;
 }
 
@@ -278,34 +278,34 @@ select:disabled {
 /**
  * Remove padding
  */
-option {
+:where(option) {
   padding: 0;
 }
 
 /**
  * Reset to invisible
  */
-fieldset {
+:where(fieldset) {
   margin: 0;
   padding: 0;
   min-width: 0;
 }
 
-legend {
+:where(legend) {
   padding: 0;
 }
 
 /**
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
-progress {
+:where(progress) {
   vertical-align: baseline;
 }
 
 /**
  * Remove the default vertical scrollbar in IE 10+.
  */
-textarea {
+:where(textarea) {
   overflow: auto;
 }
 
@@ -352,14 +352,14 @@ label[for] {
 /*
  * Add the correct display in Edge, IE 10+, and Firefox.
  */
-details {
+:where(details) {
   display: block;
 }
 
 /*
  * Add the correct display in all browsers.
  */
-summary {
+:where(summary) {
   display: list-item;
 }
 
@@ -375,22 +375,22 @@ summary {
 /**
 1. Correct table border color inheritance in all Chrome and Safari.
 */
-table {
+:where(table) {
   border-color: inherit; /* 1 */
   border-collapse: collapse;
 }
 
-caption {
+:where(caption) {
   text-align: left;
 }
 
-td,
-th {
+:where(td),
+:where(th) {
   vertical-align: top;
   padding: 0;
 }
 
-th {
+:where(th) {
   text-align: left;
   font-weight: bold;
 }
@@ -464,7 +464,7 @@ a:active {
   text-decoration: none;
 }
 
-em {
+:where(em) {
   font-style: normal;
 }
 
@@ -536,111 +536,6 @@ spモーダルの全画面表示（bootstrap上書き）
 /*============================
 レスポンシブレイアウト
 ============================*/
-/*============================
-会員区分アイコン
-============================*/
-[class*=userstatus_] {
-  line-height: 0;
-  font-weight: bold;
-  padding: 6px 8px;
-  border-radius: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 0.65rem;
-}
-[class*=userstatus_]::before {
-  display: inline-block;
-  width: 12px;
-  height: auto;
-  margin-right: 3px;
-  vertical-align: -1px;
-}
-
-.userstatus_free {
-  color: #7a7a7a;
-  background-color: #fff;
-  border: 2px solid #f0f0f0;
-}
-.userstatus_free::before {
-  content: url(images/ico_free.svg);
-}
-
-.userstatus_pengin {
-  color: #965de6;
-  background-color: #f8f5fc;
-  border: 2px solid #f1e8ff;
-}
-.userstatus_pengin::before {
-  content: url(images/ico_pengin.svg);
-}
-
-.userstatus_iruka {
-  color: #4e9cf5;
-  background-color: #f7fbff;
-  border: 2px solid #e6f2ff;
-}
-.userstatus_iruka::before {
-  content: url(images/ico_iruka.svg);
-}
-
-.userstatus_panda {
-  color: #5e9900;
-  background-color: #f7faf2;
-  border: 2px solid #e4f2d0;
-}
-.userstatus_panda::before {
-  content: url(images/ico_panda.svg);
-}
-
-.userstatus_tora {
-  color: #ef9300;
-  background-color: #fffbf2;
-  border: 2px solid #fff2d8;
-}
-.userstatus_tora::before {
-  content: url(images/ico_tora.svg);
-}
-
-.userstatus_kodomo {
-  color: #64c3c9;
-  background-color: #fff;
-  border: 2px solid #c8eef0;
-}
-.userstatus_kodomo::before {
-  content: url(images/ico_kodomo.svg);
-}
-
-.icon_status {
-  position: absolute;
-  width: 20px;
-  top: 22px;
-  left: 22px;
-}
-.icon_status[class*=userstatus_] {
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-}
-.icon_status[class*=userstatus_]::before {
-  display: none;
-}
-.icon_status.userstatus_pengin {
-  content: url(images/ico_border_pengin.svg);
-}
-.icon_status.userstatus_iruka {
-  content: url(images/ico_border_iruka.svg);
-}
-.icon_status.userstatus_panda {
-  content: url(images/ico_border_panda.svg);
-}
-.icon_status.userstatus_tora {
-  content: url(images/ico_border_tora.svg);
-}
-.icon_status.userstatus_kodomo {
-  content: url(images/ico_border_kodomo.svg);
-}
-
 /*============================
 ボタン
 ============================*/
@@ -1079,104 +974,6 @@ input[type=search] {
 }
 
 /*============================
-会員区分別検索
-============================*/
-.search_memberStatus {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.search_memberStatus li[class*=member_] {
-  font-weight: bold;
-  padding: 0 8px;
-  border-radius: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 0.8125rem;
-  position: relative;
-}
-.search_memberStatus li[class*=member_]::before {
-  display: inline-block;
-  width: 14px;
-  height: auto;
-  margin-right: 3px;
-  vertical-align: -1px;
-  position: absolute;
-  top: 50%;
-  left: 30px;
-  transform: translateY(-50%);
-}
-.search_memberStatus li {
-  width: 140px;
-}
-.search_memberStatus li.member_pengin {
-  color: #965de6;
-  background-color: #f8f5fc;
-  border: 2px solid #f1e8ff;
-}
-.search_memberStatus li.member_pengin::before {
-  content: url(images/ico_pengin.svg);
-}
-.search_memberStatus li.member_iruka {
-  color: #4e9cf5;
-  background-color: #f7fbff;
-  border: 2px solid #e6f2ff;
-}
-.search_memberStatus li.member_iruka::before {
-  content: url(images/ico_iruka.svg);
-}
-.search_memberStatus li.member_panda {
-  color: #5e9900;
-  background-color: #f7faf2;
-  border: 2px solid #e4f2d0;
-}
-.search_memberStatus li.member_panda::before {
-  content: url(images/ico_panda.svg);
-}
-.search_memberStatus li.member_tora {
-  color: #ef9300;
-  background-color: #fffbf2;
-  border: 2px solid #fff2d8;
-}
-.search_memberStatus li.member_tora::before {
-  content: url(images/ico_tora.svg);
-}
-.search_memberStatus li.member_kodomo {
-  color: #64c3c9;
-  background-color: #fff;
-  border: 2px solid #c8eef0;
-}
-.search_memberStatus li.member_kodomo::before {
-  content: url(images/ico_kodomo.svg);
-}
-.search_memberStatus li.checkbox label {
-  cursor: pointer;
-  display: block;
-  padding: 6px 0 6px 40px;
-}
-.search_memberStatus li.checkbox label::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 16px;
-  height: 16px;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 1px solid var(--clGray_97);
-  border-radius: 3px;
-  background-color: #fff;
-}
-.search_memberStatus li.checkbox label.is_current::before {
-  background-color: var(--clMain01);
-  border-color: transparent;
-}
-.search_memberStatus li.checkbox label input[type=checkbox]:checked + span {
-  width: 9px;
-  height: 8px;
-}
-
-/*============================
 テキスト
 ============================*/
 .txt_attention,
@@ -1193,16 +990,6 @@ a.text_attention {
 }
 .txt_error.is_active {
   display: block;
-}
-
-/*============================
-モーダル
-============================*/
-.modal-footer {
-  border-top: none;
-}
-.modal-footer .btn {
-  font-weight: bold;
 }
 
 /*============================

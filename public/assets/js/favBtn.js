@@ -2,33 +2,48 @@
  * お気に入りボタン
  */
 
-$(function () {
-  const favBtn = $(".js_favBtn");
+document.addEventListener('DOMContentLoaded', function () {
+  const favBtns = document.querySelectorAll(".js_favBtn");
 
-  // ツールチップの制御
-  if ($(favBtn).hasClass("is_active")) {
-    $(this).find(".tip").text("お気に入りから削除");
-  } else {
-    $(this).find(".tip").text("お気に入りに追加");
-  }
-
-  favBtn.on("click", function () {
-    $(this).toggleClass("is_active");
-
-    const countBox = $(this).children(".count");
-    const count = countBox.text();
-    const num = Number(count);
-
-    if ($(this).hasClass("is_active")) {
-      countBox.text(num + 1);
-      $(this).find(".tip").text("お気に入りから削除");
-    } else {
-      $(this).find(".tip").text("お気に入りに追加");
-      if (num - 1 < 0) {
-        countBox.text(0);
+  // 各ボタンに対して初期化とイベントリスナーを設定
+  favBtns.forEach(function (favBtn) {
+    // ツールチップの制御（初期状態）
+    const tip = favBtn.querySelector(".tip");
+    if (tip) {
+      if (favBtn.classList.contains("is_active")) {
+        tip.textContent = "お気に入りから削除";
       } else {
-        countBox.text(num - 1);
+        tip.textContent = "お気に入りに追加";
       }
     }
+
+    // クリックイベント
+    favBtn.addEventListener("click", function () {
+      this.classList.toggle("is_active");
+
+      const countBox = this.querySelector(".count");
+      if (!countBox) return;
+      
+      const count = countBox.textContent;
+      const num = Number(count);
+
+      if (this.classList.contains("is_active")) {
+        countBox.textContent = num + 1;
+        const tip = this.querySelector(".tip");
+        if (tip) {
+          tip.textContent = "お気に入りから削除";
+        }
+      } else {
+        const tip = this.querySelector(".tip");
+        if (tip) {
+          tip.textContent = "お気に入りに追加";
+        }
+        if (num - 1 < 0) {
+          countBox.textContent = 0;
+        } else {
+          countBox.textContent = num - 1;
+        }
+      }
+    });
   });
 });
