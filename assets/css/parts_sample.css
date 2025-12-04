@@ -24,7 +24,7 @@
   justify-content: center;
   width: 100%;
   position: sticky;
-  top: 70px;
+  top: 68px;
   z-index: 100;
   padding: 10px 20px;
   box-sizing: border-box;
@@ -859,7 +859,7 @@
 }
 @media (width <= 768px){
   .flashMsg {
-    top: 60px;
+    top: 56px;
   }
   .productDetail_grid {
     grid-template-areas: "message" "image" "content";

@@ -419,3 +419,8 @@ label[for] {
   text-align: left;
   font-weight: bold;
 }
+
+:where(img) {
+  max-width: 100%;
+  height: auto;
+}

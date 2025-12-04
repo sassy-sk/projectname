@@ -6,51 +6,7 @@
 
 .footer {
   width: 100%;
-  background-color: var(--clMain01_light);
-  .footer_container {
-    width: 100%;
-    max-width: $pcWidth;
-    margin: 0 auto;
-    @include flexCenter(y);
-    padding: 22px 0;
-    @include mq(769px, 1199px) {
-      width: 98%;
-    }
-    @include sp {
-      flex-direction: column;
-    }
-  }
-  .btn_group {
-    margin: 0 20px 0 0;
-    @include sp {
-      @include flexCenter(xy);
-      margin: 0 0 20px 0;
-    }
-
-    a {
-      padding: 10px;
-      font-size: rem(14);
-      font-weight: bold;
-      @include flexCenter(xy);
-      &:not(last-of-type) {
-        margin-right: 10px;
-      }
-      &.btn_guide {
-        display: none;
-        img {
-          filter: invert(26%) sepia(10%) saturate(13%) hue-rotate(332deg) brightness(98%) contrast(96%);
-        }
-        @include sp {
-          display: block;
-        }
-      }
-      img {
-        width: auto;
-        height: 20px;
-        margin-right: 5px;
-      }
-    }
-  }
+  background-color: var(--main01);
 }
 
 /*============================
@@ -79,7 +35,9 @@
 ============================*/
 .copyright {
   display: block;
-  background-color: #7fc893;
-  font-size: rem(10);
+  color: var(--white);
+  font-size: rem(14);
+  letter-spacing: 0.02em;
   text-align: center;
+  padding-block: rem(24.5);
 }
