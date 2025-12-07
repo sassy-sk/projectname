@@ -38,33 +38,6 @@
 }
 
 /*============================
-商品カテゴリー（検索結果・商品詳細等）
-============================*/
-.categoryIndex {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-}
-.categoryIndex .category_list:not(:last-child)::after {
-  content: ">";
-  display: inline-block;
-  padding: 0 6px;
-}
-.categoryIndex .category_link {
-  display: inline-block;
-  border: var(--clGray_cc) 1px solid;
-  border-radius: 4px;
-  padding: 4px 8px;
-  background-color: #fff;
-  font-size: 0.75rem;
-  color: var(--clText);
-}
-.categoryIndex .category_link:hover {
-  transition-property: all;
-  transition-duration: 0.2s;
-}
-
-/*============================
 商品カセット
 ============================*/
 .itemCard {

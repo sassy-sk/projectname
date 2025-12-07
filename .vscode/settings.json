@@ -32,4 +32,5 @@
     "prettier.htmlWhitespaceSensitivity": "css",
     "prettier.vueIndentScriptAndStyle": false,
     "files.insertFinalNewline": true,
+    "liveServer.settings.port": 3001,
 }
